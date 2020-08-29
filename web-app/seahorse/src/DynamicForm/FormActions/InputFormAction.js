@@ -1,21 +1,17 @@
-import React, { useState, useRef } from "react";
-import { Form, Button, Col, Row } from "react-bootstrap";
-import { IconName, AiOutlineForm } from "react-icons/ai";
+import React from "react";
+import { Form,  Col, Row } from "react-bootstrap";
+import { AiOutlineForm } from "react-icons/ai";
 import { InputFormTypes } from "../../Constants/FormActions";
-import { v4 as uuidv4 } from "uuid";
 
 export default function InputFormAction({ item, onActionChanged }) {
-  const nameRef = useRef();
-  const typeRef = useRef();
-
-  function onTypeChange() {
-    item.inputType = typeRef.current.value;
+  function onTypeChange(e) {
+    item.inputType = e.target.value;
     onActionChanged();
   }
 
-  function onNameChange() {
-    item.labelName = nameRef.current.value;
-    onActionChanged();
+  function onNameChange(e) {
+    item.labelName = e.target.value;
+    onActionChanged(e);
   }
 
   return (
@@ -28,8 +24,7 @@ export default function InputFormAction({ item, onActionChanged }) {
           </Form.Label>
           <Col sm={9}>
             <Form.Control
-              onChange={() => onNameChange()}
-              ref={nameRef}
+              onChange={(e) => onNameChange(e)}
               type="text"
               placeholder="Label name"
             />
@@ -42,12 +37,10 @@ export default function InputFormAction({ item, onActionChanged }) {
           </Form.Label>
           <Col sm={9}>
             <Form.Control
-              ref={typeRef}
-              onChange={() => onTypeChange()}
+              onChange={(e) => onTypeChange(e)}
               as="select"
               defaultValue="Choose..."
             >
-              {/* TODO - distinction between translation and .value */}
               <option>{InputFormTypes.Text}</option>
               <option>{InputFormTypes.Date}</option>
             </Form.Control>

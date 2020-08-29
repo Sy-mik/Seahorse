@@ -6,7 +6,6 @@ import FormActionFactory from "./FormActions/helpers/FormActionFactory";
 
 const grid = 10;
 
-const getItemStyle = (isDragging, draggableStyle) => ({});
 const getListStyle = (isDraggingOver) => ({
   background: isDraggingOver ? "#E5E5E5" : "#E5E5E5",
   padding: grid,
@@ -14,7 +13,7 @@ const getListStyle = (isDraggingOver) => ({
   width: 500,
 });
 
-export default function DroppableActionContainer({
+export default function DoppableAreaComponent({
   ind,
   state,
   onClick,
