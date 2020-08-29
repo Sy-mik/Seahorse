@@ -1,0 +1,6 @@
+.flex-item {
+    display: 'flex';
+    marginLeft: 10;
+    flexDirection: "column";
+    maxWidth: 80;
+}
