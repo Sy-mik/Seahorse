@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import InputFormAction from "./FormActions/InputFormAction";
+import React from "react";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 import FormActionFactory from "./FormActions/helpers/FormActionFactory";
 
 const grid = 10;
 
-const getItemStyle = (isDragging, draggableStyle) => ({});
 const getListStyle = (isDraggingOver) => ({
   background: isDraggingOver ? "#E5E5E5" : "#E5E5E5",
   padding: grid,
@@ -14,7 +11,7 @@ const getListStyle = (isDraggingOver) => ({
   width: 500,
 });
 
-export default function DroppableActionContainer({
+export default function DroppableAreaComponent({
   ind,
   state,
   onClick,

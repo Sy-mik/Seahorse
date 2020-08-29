@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import QuoteApp from "./DndExample";
+import { v4 as uuidv4 } from "uuid";
+import DynamicFormComponent from "./DynamicFormComponent";
 
 export default function DynamicFormContainer() {
-  const textInputCallback = () => {
-    console.log("TextInput");
-  };
+  const [state, setState] = useState([]);
 
-  const [availableActions, setAvailableActions] = useState([
-    {
-      name: "TextInput",
-      icon: "TextInput",
-      callback: textInputCallback,
-    },
-  ]);
-
-  const [addedActions, setAddedActions] = useState([]);
+  function addItem(itemType) {
+    const uuid = uuidv4();
+    var item = {
+      id: uuid,
+      actionType: itemType,
+    };
+    var joined = [...state, item];
+    setState([...joined]);
+  }
 
   return (
-    <div>
-      <QuoteApp></QuoteApp>
-    </div>
+    <DynamicFormComponent
+      state={state}
+      setState={setState}
+      addItem={addItem}
+    ></DynamicFormComponent>
   );
 }
