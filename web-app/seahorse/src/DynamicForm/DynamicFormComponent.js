@@ -1,15 +1,10 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import DroppableActionContainer from "./DoppableAreaComponent";
+import React from "react";
 import AvailableActionsContainer from "../ActionsPanel/AvailableActionsContainer";
-import { v4 as uuidv4 } from "uuid";
 import GeneratedFormDynamicViewContainer from "../GeneratedForm/GeneratedFormDynamicViewContainer";
 import { Colors } from "../Constants/Theme";
 import DroppableAreaContainer from "./DroppableAreaContainer";
 
-export default function DynamicFormContainer({state, setState, addItem}) {
-
+export default function DynamicFormComponent({ state, setState, addItem }) {
   return (
     <div
       style={{
