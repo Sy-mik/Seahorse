@@ -1,6 +1,6 @@
 .flex-item {
-    display: 'flex';
-    marginLeft: 10;
-    flexDirection: "column";
-    maxWidth: 80;
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    max-width: 80px;
 }

@@ -1,11 +1,11 @@
-import React from "react";
-import { Droppable, Draggable } from "react-beautiful-dnd";
-import FormActionFactory from "./FormActions/helpers/FormActionFactory";
+import React from 'react';
+import { Draggable, Droppable } from 'react-beautiful-dnd';
+import FormActionFactory from './FormActions/helpers/FormActionFactory';
 
 const grid = 10;
 
 const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? "#E5E5E5" : "#E5E5E5",
+  background: isDraggingOver ? '#E5E5E5' : '#E5E5E5',
   padding: grid,
   // borderRadius: 15,
   width: 500,
@@ -37,7 +37,7 @@ export default function DroppableAreaComponent({
                   onDelete={onClick}
                   provided={provided}
                   snapshot={snapshot}
-                ></FormActionFactory>
+                />
               )}
             </Draggable>
           ))}

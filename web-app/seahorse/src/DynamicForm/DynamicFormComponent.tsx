@@ -1,15 +1,15 @@
-import React from "react";
-import AvailableActionsContainer from "../ActionsPanel/AvailableActionsContainer";
-import GeneratedFormDynamicViewContainer from "../GeneratedForm/GeneratedFormDynamicViewContainer";
-import { Colors } from "../Constants/Theme";
-import DroppableAreaContainer from "./DroppableAreaContainer";
+import React from 'react';
+import AvailableActionsContainer from '../ActionsPanel/AvailableActionsContainer';
+import GeneratedFormDynamicViewContainer from '../GeneratedForm/GeneratedFormDynamicViewContainer';
+import { Colors } from '../Constants/Theme';
+import DroppableAreaContainer from './DroppableAreaContainer';
 
 export default function DynamicFormComponent({ state, setState, addItem }) {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "row",
+        display: 'flex',
+        flexDirection: 'row',
         padding: 20,
       }}
     >
