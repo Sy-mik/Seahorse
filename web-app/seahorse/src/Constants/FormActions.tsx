@@ -1,13 +1,13 @@
 export const FormActions = {
-  TextInputForm: "TextInputForm",
-  CheckBoxesForm: "CheckboxesForm",
+  TextInputForm: 'TextInputForm',
+  CheckBoxesForm: 'CheckboxesForm',
 };
 
 export const InputFormTypes = {
-  Text: "Text",
+  Text: 'Text',
   // Number: "Number",
 
-  Date: "Date",
+  Date: 'Date',
 };
 
 export class InputFormAction {

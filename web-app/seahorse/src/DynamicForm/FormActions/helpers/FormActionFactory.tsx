@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { FormActions } from "../../../Constants/FormActions";
-import InputFormAction from "../InputFormAction";
-import ActionWrapperComponent from "./ActionWrapperComponent";
-import CheckBoxFormAction from "../CheckBoxesFormAction";
+import React, { useState } from 'react';
+import { FormActions } from '../../../Constants/FormActions';
+import InputFormAction from '../InputFormAction';
+import ActionWrapperComponent from './ActionWrapperComponent';
+import CheckBoxFormAction from '../CheckBoxesFormAction';
 
 export default function FormActionFactory({
   action,
