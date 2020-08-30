@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
-import { IconName, AiOutlineForm } from 'react-icons/ai';
 import { v4 as uuidv4 } from 'uuid';
 import { BsCheckBox } from 'react-icons/bs';
 
-export default function CheckBoxFormAction() {
+interface CheckBoxFormActionProps {
+  item: any;
+}
+export const CheckBoxFormAction: FunctionComponent<CheckBoxFormActionProps> = ({
+  item,
+}) => {
   const [checkBoxes, setCheckBoxes] = useState([uuidv4]);
 
   return (
@@ -39,4 +43,5 @@ export default function CheckBoxFormAction() {
       </Form>
     </div>
   );
-}
+};
+export default CheckBoxFormAction;

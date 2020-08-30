@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import AvailableActionsContainer from '../ActionsPanel/AvailableActionsContainer';
 import GeneratedFormDynamicViewContainer from '../GeneratedForm/GeneratedFormDynamicViewContainer';
 import { Colors } from '../Constants/Theme';
 import DroppableAreaContainer from './DroppableAreaContainer';
+import './DynamicFormComponent.css';
 
-export default function DynamicFormComponent({ state, setState, addItem }) {
+interface DynamicFormComponentProps {
+  state: any;
+  setState: (state: any) => void;
+  addItem: (item: any) => void;
+}
+
+export const DynamicFormComponent: FunctionComponent<DynamicFormComponentProps> = ({
+  state,
+  setState,
+  addItem,
+}) => {
   return (
     <div
       style={{
@@ -20,14 +31,7 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
         ></DroppableAreaContainer>
       </div>
 
-      <div
-        style={{
-          flex: 4,
-          marginRight: 20,
-          marginLeft: 20,
-          backgroundColor: Colors.backgroundColor,
-        }}
-      >
+      <div className="generated-form-dynamic-view-container">
         <GeneratedFormDynamicViewContainer
           state={state}
         ></GeneratedFormDynamicViewContainer>
@@ -39,4 +43,5 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
       </div>
     </div>
   );
-}
+};
+export default DynamicFormComponent;

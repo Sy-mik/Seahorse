@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 import { IoIosRemoveCircleOutline } from 'react-icons/io';
 import FormItemFactory from './GeneratedFormItem/helpers/FormItemFactory';
 
-export default function GeneratedFormDynamicViewContainer({ state }) {
+interface GeneratedFormDynamicViewContainerProps {
+  state: any[];
+}
+export const GeneratedFormDynamicViewContainer: FunctionComponent<GeneratedFormDynamicViewContainerProps> = ({
+  state,
+}) => {
   return (
     <div>
       {state.map((item) => (
@@ -15,4 +20,5 @@ export default function GeneratedFormDynamicViewContainer({ state }) {
       ))}
     </div>
   );
-}
+};
+export default GeneratedFormDynamicViewContainer;

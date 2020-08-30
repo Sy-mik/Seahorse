@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { FormActions } from '../../../Constants/FormActions';
 import InputFormAction from '../InputFormAction';
 import ActionWrapperComponent from './ActionWrapperComponent';
-import CheckBoxFormAction from '../CheckBoxesFormAction';
+import { CheckBoxFormAction } from '../CheckBoxesFormAction';
 
-export default function FormActionFactory({
+interface FormActionFactoryProps {
+  action: FormActions;
+  onDelete: (any: any) => void;
+  provided: any;
+  item: any;
+  snapshot: any;
+  index: number;
+  onActionChanged: (any: any) => void;
+}
+export const FormActionFactory: FunctionComponent<FormActionFactoryProps> = ({
   action,
   onDelete,
   provided,
@@ -12,9 +21,9 @@ export default function FormActionFactory({
   snapshot,
   index,
   onActionChanged,
-}) {
+}) => {
   switch (action) {
-    case FormActions.TextInputForm:
+    case FormActions.TEXT_INPUT_FORM:
       return (
         <ActionWrapperComponent
           index={index}
@@ -40,4 +49,6 @@ export default function FormActionFactory({
         </ActionWrapperComponent>
       );
   }
-}
+};
+
+export default FormActionFactory;

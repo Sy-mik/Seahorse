@@ -7,14 +7,14 @@ interface DynamicFormContainerProps {}
 export const DynamicFormContainer: FunctionComponent<DynamicFormContainerProps> = () => {
   const [state, setState] = useState([]);
 
-  function addItem(itemType): void {
+  function addItem(itemType: any): void {
     const uuid = uuidv4();
-    var item = {
+    const item = {
       id: uuid,
       actionType: itemType,
     };
-    var joined = [...state, item];
-    setState([...joined]);
+    const joined = [...state, item];
+    // setState([...joined]); TODO
   }
 
   return (

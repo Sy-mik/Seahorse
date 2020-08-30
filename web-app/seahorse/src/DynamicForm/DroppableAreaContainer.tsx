@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import DoppableAreaComponent from './DroppableAreaComponent';
 
-const reorder = (list, startIndex, endIndex) => {
+const reorder = (list: any[], startIndex: number, endIndex: number) => {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
   return result;
 };
 
-export default function DroppableAreaContainer({ state, setState }) {
-  function onDragEnd(result) {
+interface DroppableAreaContainerProps {
+  state: any;
+  setState: (any: any) => void;
+}
+
+export const DroppableAreaContainer: FunctionComponent<DroppableAreaContainerProps> = ({
+  state,
+  setState,
+}) => {
+  function onDragEnd(result: any) {
     const { source, destination } = result;
     if (!destination) {
       return;
@@ -25,7 +33,7 @@ export default function DroppableAreaContainer({ state, setState }) {
     setState([...state]);
   }
 
-  function removeItem(itemIndex) {
+  function removeItem(itemIndex: number) {
     const newState = [...state];
     newState.splice(itemIndex, 1);
     setState(newState);
@@ -41,4 +49,5 @@ export default function DroppableAreaContainer({ state, setState }) {
       ></DoppableAreaComponent>
     </DragDropContext>
   );
-}
+};
+export default DroppableAreaContainer;

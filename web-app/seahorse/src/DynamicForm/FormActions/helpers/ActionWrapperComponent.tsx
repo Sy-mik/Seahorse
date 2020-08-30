@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 import { IoIosRemoveCircleOutline } from 'react-icons/io';
 
-export default function ActionWrapperComponent({
+interface ActionWrapperComponentProps {
+  onDelete: (any: any) => void;
+  provided: any;
+  snapshot: any;
+  index: number;
+}
+export const ActionWrapperComponent: FunctionComponent<ActionWrapperComponentProps> = ({
   onDelete,
   provided,
   snapshot,
   index,
   ...props
-}) {
+}) => {
   const yourInputHereString = 'Form name';
   const grid = 8;
   return (
@@ -43,4 +49,5 @@ export default function ActionWrapperComponent({
       <div style={{}}>{props.children}</div>
     </div>
   );
-}
+};
+export default ActionWrapperComponent;

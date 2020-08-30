@@ -1,7 +1,7 @@
-export const FormActions = {
-  TextInputForm: 'TextInputForm',
-  CheckBoxesForm: 'CheckboxesForm',
-};
+export enum FormActions {
+  TEXT_INPUT_FORM = 'TEXT_INPUT_FORM',
+  CHECKBOXES_FORM = 'CHECKBOXES_FORM',
+}
 
 export const InputFormTypes = {
   Text: 'Text',
@@ -11,5 +11,5 @@ export const InputFormTypes = {
 };
 
 export class InputFormAction {
-  labelName;
+  labelName: any;
 }

@@ -1,19 +1,28 @@
-import React from 'react';
-import { Form, Col, Row } from 'react-bootstrap';
+import React, { FunctionComponent } from 'react';
+import { Col, Form, Row } from 'react-bootstrap';
 import { AiOutlineForm } from 'react-icons/ai';
 import { InputFormTypes } from '../../Constants/FormActions';
 
-export default function InputFormAction({ item, onActionChanged }) {
-  function onTypeChange(e) {
+interface InputFormActionProps {
+  item: any;
+  onActionChanged: (any?: any) => void;
+}
+
+export const InputFormAction: FunctionComponent<InputFormActionProps> = ({
+  item,
+  onActionChanged,
+}) => {
+  function onTypeChange(e: any) {
     item.inputType = e.target.value;
     onActionChanged();
   }
 
-  function onNameChange(e) {
+  function onNameChange(e: any) {
     item.labelName = e.target.value;
     onActionChanged(e);
   }
 
+  // @ts-ignore
   return (
     <div>
       <AiOutlineForm size={20} onClick={() => {}} />
@@ -49,4 +58,5 @@ export default function InputFormAction({ item, onActionChanged }) {
       </Form>
     </div>
   );
-}
+};
+export default InputFormAction;

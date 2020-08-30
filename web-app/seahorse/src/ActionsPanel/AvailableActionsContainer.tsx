@@ -8,12 +8,12 @@ import { Colors } from '../Constants/Theme';
 import { FormActions } from '../Constants/FormActions';
 
 interface AvailableActionsProps {
-  onClick: any;
+  onClick: (action: FormActions | null) => void;
 }
 
-export const AvailableActionsContainer: FunctionComponent<AvailableActionsProps> = (
-  onClick
-) => {
+export const AvailableActionsContainer: FunctionComponent<AvailableActionsProps> = ({
+  onClick,
+}) => {
   const spaceBetweenItems = 5;
 
   return (
@@ -34,7 +34,7 @@ export const AvailableActionsContainer: FunctionComponent<AvailableActionsProps>
               variant="outline-primary"
               size="lg"
               type="button"
-              onClick={() => onClick(FormActions.TextInputForm)}
+              onClick={() => onClick(FormActions.TEXT_INPUT_FORM)}
             >
               <AiOutlineForm size={25} />
             </Button>
