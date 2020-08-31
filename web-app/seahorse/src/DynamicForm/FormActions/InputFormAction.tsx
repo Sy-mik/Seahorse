@@ -41,7 +41,7 @@ export const InputFormAction: FunctionComponent<InputFormActionProps> = ({
         </Form.Group>
 
         <Form.Group as={Row} controlId="formType">
-          <Form.Label className="text-center" size="sm" column sm={3}>
+          <Form.Label className="text-center" column sm={3}>
             Type
           </Form.Label>
           <Col sm={9}>

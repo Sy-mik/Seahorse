@@ -3,18 +3,17 @@ import { v4 as uuidv4 } from 'uuid';
 import DynamicFormComponent from './DynamicFormComponent';
 
 interface DynamicFormContainerProps {}
+const DynamicFormContainer: FunctionComponent<DynamicFormContainerProps> = () => {
+  const [state, setState] = useState<any>([]);
 
-export const DynamicFormContainer: FunctionComponent<DynamicFormContainerProps> = () => {
-  const [state, setState] = useState([]);
-
-  function addItem(itemType: any): void {
+  function addItem(itemType: any) {
     const uuid = uuidv4();
     const item = {
       id: uuid,
       actionType: itemType,
     };
     const joined = [...state, item];
-    // setState([...joined]); TODO
+    setState([...joined]);
   }
 
   return (
@@ -25,5 +24,4 @@ export const DynamicFormContainer: FunctionComponent<DynamicFormContainerProps> 
     ></DynamicFormComponent>
   );
 };
-
 export default DynamicFormContainer;

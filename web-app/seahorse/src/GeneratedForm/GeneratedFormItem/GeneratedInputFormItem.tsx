@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 import { IoIosRemoveCircleOutline } from 'react-icons/io';
 import { InputFormAction } from '../../Constants/FormActions';
 
-export default function GeneratedInputFormItem({ item }) {
+interface GeneratedInputFormItemProps {
+  item: any;
+}
+
+export const GeneratedInputFormItem: FunctionComponent<GeneratedInputFormItemProps> = ({
+  item,
+}) => {
   useEffect(() => {
     console.log(`item input type ${item.inputType}`);
   }, [item]);
@@ -17,4 +23,6 @@ export default function GeneratedInputFormItem({ item }) {
       </Form>
     </div>
   );
-}
+};
+
+export default GeneratedInputFormItem;

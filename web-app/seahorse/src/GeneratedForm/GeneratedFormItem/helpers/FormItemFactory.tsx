@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { FormActions } from '../../../Constants/FormActions';
 import GeneratedInputFormItem from '../GeneratedInputFormItem';
 
-export default function FormItemFactory({ action, item }) {
+interface FormItemFactoryProps {
+  action: any;
+  item: any;
+}
+
+export const FormItemFactory: FunctionComponent<FormItemFactoryProps> = ({
+  action,
+  item,
+}) => {
   switch (action) {
-    case FormActions.TextInputForm:
+    case FormActions.TEXT_INPUT_FORM:
       return <GeneratedInputFormItem item={item}></GeneratedInputFormItem>;
     default:
       return <GeneratedInputFormItem item={item}></GeneratedInputFormItem>;
   }
-}
+};
+
+export default FormItemFactory;

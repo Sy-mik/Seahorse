@@ -31,7 +31,7 @@ export const DynamicFormComponent: FunctionComponent<DynamicFormComponentProps> 
         ></DroppableAreaContainer>
       </div>
 
-      <div className="generated-form-dynamic-view-container">
+      <div className="generated-form-dynamic-view-container ">
         <GeneratedFormDynamicViewContainer
           state={state}
         ></GeneratedFormDynamicViewContainer>
