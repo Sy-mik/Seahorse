@@ -6,7 +6,8 @@ export const authServiceLogOut = (e) => {
   window.open("/", "_self");
 };
 
-export const authServiceLogIn = (e) => {
+export const authServiceLogIn = (login, password) => {
+  console.log(login, password);
   localStorage.setItem("IS_LOGGED_IN", "true");
   window.open("/", "_self");
 };
