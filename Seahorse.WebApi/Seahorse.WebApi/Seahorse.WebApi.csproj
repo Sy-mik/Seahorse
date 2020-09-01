@@ -8,4 +8,10 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Seahorse.WebApi.Auth\Seahorse.WebApi.Auth.csproj" />
+    <ProjectReference Include="..\Seahorse.WebApi.Contract\Seahorse.WebApi.Contract.csproj" />
+    <ProjectReference Include="..\Seahorse.WebApi.Db\Seahorse.WebApi.Db.csproj" />
+  </ItemGroup>
+
 </Project>

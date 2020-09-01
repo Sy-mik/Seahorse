@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seahorse.WebApi", "Seahorse.WebApi\Seahorse.WebApi.csproj", "{D8B29B2C-293A-427B-ABA7-963791F65BD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seahorse.WebApi", "Seahorse.WebApi\Seahorse.WebApi.csproj", "{D8B29B2C-293A-427B-ABA7-963791F65BD4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seahorse.WebApi.Db", "Seahorse.WebApi.Db\Seahorse.WebApi.Db.csproj", "{C948DC55-FA14-4A66-923B-91AC7E794258}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seahorse.WebApi.Db.Test", "Seahorse.WebApi.Db.Test\Seahorse.WebApi.Db.Test.csproj", "{E026BF1F-6D33-4669-906D-03EE40E74827}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seahorse.WebApi.Contract", "Seahorse.WebApi.Contract\Seahorse.WebApi.Contract.csproj", "{85F1EF4B-61C0-4965-80F5-03AC7DADDB65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seahorse.WebApi.Auth", "Seahorse.WebApi.Auth\Seahorse.WebApi.Auth.csproj", "{526CD724-FC5F-44EA-9975-139D15651D59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{D8B29B2C-293A-427B-ABA7-963791F65BD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8B29B2C-293A-427B-ABA7-963791F65BD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8B29B2C-293A-427B-ABA7-963791F65BD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C948DC55-FA14-4A66-923B-91AC7E794258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C948DC55-FA14-4A66-923B-91AC7E794258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C948DC55-FA14-4A66-923B-91AC7E794258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C948DC55-FA14-4A66-923B-91AC7E794258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E026BF1F-6D33-4669-906D-03EE40E74827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E026BF1F-6D33-4669-906D-03EE40E74827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E026BF1F-6D33-4669-906D-03EE40E74827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E026BF1F-6D33-4669-906D-03EE40E74827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85F1EF4B-61C0-4965-80F5-03AC7DADDB65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F1EF4B-61C0-4965-80F5-03AC7DADDB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F1EF4B-61C0-4965-80F5-03AC7DADDB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F1EF4B-61C0-4965-80F5-03AC7DADDB65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526CD724-FC5F-44EA-9975-139D15651D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526CD724-FC5F-44EA-9975-139D15651D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526CD724-FC5F-44EA-9975-139D15651D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526CD724-FC5F-44EA-9975-139D15651D59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
