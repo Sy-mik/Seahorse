@@ -3,6 +3,7 @@ import { FormActions } from "../../../Constants/FormActions";
 import InputFormAction from "../InputFormAction";
 import ActionWrapperComponent from "./ActionWrapperComponent";
 import CheckBoxFormAction from "../CheckBoxesFormAction";
+import DynamicallyExtensibleFormInputAction from "../DynamicallyExtensibleFormInputAction";
 
 export default function FormActionFactory({
   action,
@@ -28,6 +29,22 @@ export default function FormActionFactory({
           ></InputFormAction>
         </ActionWrapperComponent>
       );
+
+    case FormActions.DynamicallyExtensibleForm:
+      return (
+        <ActionWrapperComponent
+          index={index}
+          onDelete={onDelete}
+          provided={provided}
+          snapshot={snapshot}
+        >
+          <DynamicallyExtensibleFormInputAction
+            item={item}
+            onActionChanged={onActionChanged}
+          ></DynamicallyExtensibleFormInputAction>
+        </ActionWrapperComponent>
+      );
+
     default:
       return (
         <ActionWrapperComponent

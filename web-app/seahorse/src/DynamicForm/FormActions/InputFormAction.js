@@ -1,5 +1,5 @@
 import React from "react";
-import { Form,  Col, Row } from "react-bootstrap";
+import { Form, Col, Row } from "react-bootstrap";
 import { AiOutlineForm } from "react-icons/ai";
 import { InputFormTypes } from "../../Constants/FormActions";
 
@@ -11,7 +11,7 @@ export default function InputFormAction({ item, onActionChanged }) {
 
   function onNameChange(e) {
     item.labelName = e.target.value;
-    onActionChanged(e);
+    onActionChanged();
   }
 
   return (

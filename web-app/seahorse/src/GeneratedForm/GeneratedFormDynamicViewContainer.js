@@ -4,12 +4,18 @@ import { IoIosRemoveCircleOutline } from "react-icons/io";
 import FormItemFactory from "./GeneratedFormItem/helpers/FormItemFactory";
 
 export default function GeneratedFormDynamicViewContainer({ state }) {
-
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
   return (
-    <div>
+    <>
       {state.map((item) => (
-        <FormItemFactory key={item.id} action={item.actionType} item={item}></FormItemFactory>
+        <FormItemFactory
+          key={item.id}
+          action={item.actionType}
+          item={item}
+        ></FormItemFactory>
       ))}
-    </div>
+    </>
   );
 }

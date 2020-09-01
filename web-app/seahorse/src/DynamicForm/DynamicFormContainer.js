@@ -7,11 +7,11 @@ export default function DynamicFormContainer() {
 
   function addItem(itemType) {
     const uuid = uuidv4();
-    var item = {
+    const item = {
       id: uuid,
       actionType: itemType,
     };
-    var joined = [...state, item];
+    const joined = [...state, item];
     setState([...joined]);
   }
 
