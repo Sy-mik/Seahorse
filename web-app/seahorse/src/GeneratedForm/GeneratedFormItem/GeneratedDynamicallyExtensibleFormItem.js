@@ -16,6 +16,19 @@ function ItemGenerator({ type, inputName, index }) {
         </div>
       );
     }
+    // can be improved by just type={whatevr}
+    case InputFormTypes.Date: {
+      return (
+        <div>
+          <Form>
+            <Form.Group controlId="formName">
+              <Form.Label className="text-center">{inputName}</Form.Label>
+              <Form.Control type="date" placeholder="User input" /> 
+            </Form.Group>
+          </Form>
+        </div>
+      );
+    }
     case InputFormTypes.CheckBox: {
       return (
         <div>
