@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
+import FormNameContainer from "./FormNameContainer";
 
-export default function ActionWrapperComponent(
-  { onDelete, provided, snapshot, index, ...props }
-  
-) {
-  const yourInputHereString = "Form name";
+export default function ActionWrapperComponent({
+  onDelete,
+  provided,
+  snapshot,
+  index,
+  onFormNamechange,
+  ...props
+}) {
   const grid = 8;
   return (
     <div
@@ -37,10 +41,10 @@ export default function ActionWrapperComponent(
       >
         X
       </Button>
-      <div
-        style={{
-        }}
-      >
+      <div style={{}}>
+        <FormNameContainer
+          onFormNamechange={onFormNamechange}
+        ></FormNameContainer>
         {props.children}
       </div>
     </div>

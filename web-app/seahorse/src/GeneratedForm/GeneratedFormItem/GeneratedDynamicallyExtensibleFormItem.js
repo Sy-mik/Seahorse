@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import { FormActions } from "../../Constants/FormActions";
+import { FormActions, InputFormTypes } from "../../Constants/FormActions";
 
 function ItemGenerator({ type, inputName, index }) {
   switch (type) {
-    case FormActions.TextInputForm: {
+    case InputFormTypes.Text: {
       return (
         <div>
           <Form>
@@ -16,14 +16,21 @@ function ItemGenerator({ type, inputName, index }) {
         </div>
       );
     }
-    case FormActions.CheckBoxesForm: {
+    case InputFormTypes.CheckBox: {
       return (
         <div>
-          <Form >
-            <Form.Group controlId="formBasicCheckbox">
+          <Form>
+            <Form.Group controlId={`formBasicCheckbox${Math.random()}`}>
               <Form.Check type="checkbox" label={inputName} />
             </Form.Group>
           </Form>
+        </div>
+      );
+    }
+    case InputFormTypes.Label: {
+      return (
+        <div>
+          <Form.Label>{inputName}</Form.Label>
         </div>
       );
     }
@@ -45,12 +52,12 @@ function ItemGenerator({ type, inputName, index }) {
 export default function GeneratedDynamicallyExtensibleFormItem({ item }) {
   return (
     <div>
-      {item.inputsNames?.map((inputName, index) => (
+      {item.inputsNames?.map((item, index) => (
         <ItemGenerator
           key={index}
           index={index}
-          type={item.inputType}
-          inputName={inputName}
+          type={item.type}
+          inputName={item.name}
         ></ItemGenerator>
       ))}
     </div>

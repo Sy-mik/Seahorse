@@ -14,11 +14,17 @@ export default function FormActionFactory({
   index,
   onActionChanged,
 }) {
+  function onFormNameChange(name) {
+    item.formName = name;
+    onActionChanged();
+  }
+
   switch (action) {
     case FormActions.TextInputForm:
       return (
         <ActionWrapperComponent
           index={index}
+          onFormNamechange={onFormNameChange}
           onDelete={onDelete}
           provided={provided}
           snapshot={snapshot}
@@ -35,6 +41,7 @@ export default function FormActionFactory({
         <ActionWrapperComponent
           index={index}
           onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
           provided={provided}
           snapshot={snapshot}
         >
@@ -50,6 +57,7 @@ export default function FormActionFactory({
         <ActionWrapperComponent
           index={index}
           onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
           provided={provided}
           snapshot={snapshot}
         >

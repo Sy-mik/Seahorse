@@ -14,39 +14,45 @@ export default function InputFormAction({ item, onActionChanged }) {
     onActionChanged();
   }
 
-  return (
-    <div>
-      <AiOutlineForm size={20} onClick={() => {}} />
-      <Form>
-        <Form.Group as={Row} controlId="formName">
-          <Form.Label className="text-center" column sm={3}>
-            Name
-          </Form.Label>
-          <Col sm={9}>
-            <Form.Control
-              onChange={(e) => onNameChange(e)}
-              type="text"
-              placeholder="Label name"
-            />
-          </Col>
-        </Form.Group>
+  function onFormNameChange(e) {
+    item.formName = e.target.value;
+    onActionChanged();
+  }
 
-        <Form.Group as={Row} controlId="formType">
-          <Form.Label className="text-center" size="sm" column sm={3}>
-            Type
-          </Form.Label>
-          <Col sm={9}>
-            <Form.Control
-              onChange={(e) => onTypeChange(e)}
-              as="select"
-              defaultValue="Choose..."
-            >
-              <option>{InputFormTypes.Text}</option>
-              <option>{InputFormTypes.Date}</option>
-            </Form.Control>
-          </Col>
-        </Form.Group>
-      </Form>
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <Form>
+          <Form.Group as={Row} controlId="formName">
+            <Form.Label className="text-center" column sm={3}>
+              Name
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                onChange={(e) => onNameChange(e)}
+                type="text"
+                placeholder="Label name"
+              />
+            </Col>
+          </Form.Group>
+
+          <Form.Group as={Row} controlId="formType">
+            <Form.Label className="text-center" size="sm" column sm={3}>
+              Type
+            </Form.Label>
+            <Col sm={9}>
+              <Form.Control
+                onChange={(e) => onTypeChange(e)}
+                as="select"
+                defaultValue="Choose..."
+              >
+                <option>{InputFormTypes.Text}</option>
+                <option>{InputFormTypes.Date}</option>
+              </Form.Control>
+            </Col>
+          </Form.Group>
+        </Form>
+      </div>
     </div>
   );
 }

@@ -10,6 +10,7 @@ export default function DynamicFormContainer() {
     const item = {
       id: uuid,
       actionType: itemType,
+      formName: "Your form name",
     };
     const joined = [...state, item];
     setState([...joined]);

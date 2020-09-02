@@ -10,9 +10,15 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
       style={{
         display: "flex",
         flexDirection: "row",
-        padding: 20,
+        paddingTop: 20,
       }}
     >
+      <div style={{ flex: 3, marginRight: 20 }}>
+        <AvailableActionsContainer
+          onClick={addItem}
+        ></AvailableActionsContainer>
+      </div>
+
       <div style={{ flex: 4 }}>
         <DroppableAreaContainer
           state={state}
@@ -31,11 +37,6 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
         <GeneratedFormDynamicViewContainer
           state={state}
         ></GeneratedFormDynamicViewContainer>
-      </div>
-      <div style={{ flex: 3 }}>
-        <AvailableActionsContainer
-          onClick={addItem}
-        ></AvailableActionsContainer>
       </div>
     </div>
   );

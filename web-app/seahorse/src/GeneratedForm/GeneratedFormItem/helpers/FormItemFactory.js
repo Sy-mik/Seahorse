@@ -7,13 +7,15 @@ export default function FormItemFactory({ action, item }) {
   switch (action) {
     case FormActions.DynamicallyExtensibleForm:
       return (
-        <GeneratedDynamicallyExtensibleFormItem
-          item={item}
-        ></GeneratedDynamicallyExtensibleFormItem>
+          <GeneratedDynamicallyExtensibleFormItem
+            item={item}
+          ></GeneratedDynamicallyExtensibleFormItem>
       );
 
     case FormActions.TextInputForm:
-      return <GeneratedInputFormItem item={item}></GeneratedInputFormItem>;
+      return (
+          <GeneratedInputFormItem item={item}></GeneratedInputFormItem>
+      );
 
     default:
       return <GeneratedInputFormItem item={item}></GeneratedInputFormItem>;
