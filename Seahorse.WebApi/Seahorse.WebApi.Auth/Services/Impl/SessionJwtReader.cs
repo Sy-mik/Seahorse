@@ -5,14 +5,14 @@ using System.Security.Claims;
 
 namespace Seahorse.WebApi.Auth.Services
 {
-    public class JwtSessionTokenReader : IJwtSessionTokenReader
+    public class SessionJwtReader : ISessionJwtReader
     {
-        private readonly IJwtSessionTokenParametersProvider jwtSessionTokenParametersProvider;
-        private readonly ILogger<JwtSessionTokenReader> logger;
+        private readonly ISessionJwtParametersProvider jwtSessionTokenParametersProvider;
+        private readonly ILogger<SessionJwtReader> logger;
 
-        public JwtSessionTokenReader(
-            IJwtSessionTokenParametersProvider jwtSessionTokenParametersProvider,
-            ILogger<JwtSessionTokenReader> logger)
+        public SessionJwtReader(
+            ISessionJwtParametersProvider jwtSessionTokenParametersProvider,
+            ILogger<SessionJwtReader> logger)
         {
             this.jwtSessionTokenParametersProvider = jwtSessionTokenParametersProvider;
             this.logger = logger;

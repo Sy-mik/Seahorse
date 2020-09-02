@@ -2,8 +2,9 @@
 
 namespace Seahorse.WebApi.Auth.Services
 {
-    public interface IJwtSessionTokenParametersProvider
+    public interface ISessionJwtParametersProvider
     {
         TokenValidationParameters GetParameters();
+        SymmetricSecurityKey GetSecurityKey();
     }
 }

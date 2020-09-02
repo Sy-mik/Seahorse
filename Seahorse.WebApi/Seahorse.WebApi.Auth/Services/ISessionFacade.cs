@@ -8,5 +8,6 @@ namespace Seahorse.WebApi.Auth.Services
         Task<Session> FindSessionAsync(string sessionId);
         bool IsSessionExpired(Session session);
         Task ProlongSessionAsync(Session session);
+        Task<Session> StartSessionAsync(User user);
     }
 }

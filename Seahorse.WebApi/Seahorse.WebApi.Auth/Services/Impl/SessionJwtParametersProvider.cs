@@ -6,25 +6,29 @@ using System.Text;
 
 namespace Seahorse.WebApi.Auth.Services
 {
-    public class JwtSessionTokenParametersProvider : IJwtSessionTokenParametersProvider
+    public class SessionJwtParametersProvider : ISessionJwtParametersProvider
     {
         private readonly IOptions<JwtSessionTokenOptions> configuration;
         private readonly Lazy<TokenValidationParameters> tokenValidationParameters;
+        private readonly Lazy<SymmetricSecurityKey> securityKey;
 
-        public JwtSessionTokenParametersProvider(IOptions<JwtSessionTokenOptions> configuration)
+        public SessionJwtParametersProvider(IOptions<JwtSessionTokenOptions> configuration)
         {
             this.configuration = configuration;
             tokenValidationParameters = new Lazy<TokenValidationParameters>(BuildTokenValidationParameters);
+            securityKey = new Lazy<SymmetricSecurityKey>(GetTokenSigningKey);
         }
 
         public TokenValidationParameters GetParameters() => tokenValidationParameters.Value;
+
+        public SymmetricSecurityKey GetSecurityKey() => securityKey.Value;
 
         private TokenValidationParameters BuildTokenValidationParameters()
         {
             return new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = GetTokenSigningKey(),
+                IssuerSigningKey = GetSecurityKey(),
                 ValidateIssuer = true,
                 ValidateAudience = false,
                 ValidIssuer = configuration.Value.Issuer,

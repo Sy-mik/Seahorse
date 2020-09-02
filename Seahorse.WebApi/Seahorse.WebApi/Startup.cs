@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +20,9 @@ namespace Seahorse.WebApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var mvcBuilder = services.AddMvcCore();
             services.UseSeahorseDatabase(configuration);
-            services.UseSeahorseAuth();
+            services.UseSeahorseAuth(mvcBuilder);
             services.AddSpaStaticFiles(configuration => configuration.RootPath = "../../web-app/seahorse/build");
         }
 

@@ -11,11 +11,11 @@ namespace Seahorse.WebApi.Auth.Services
     {
         private const string authenticationScheme = SeahorseAuthenticationHandler.AuthenticationScheme;
         private readonly ILogger<SessionIdProvider> logger;
-        private readonly IJwtSessionTokenReader jwtReader;
+        private readonly ISessionJwtReader jwtReader;
 
         public SessionIdProvider(
             ILogger<SessionIdProvider> logger,
-            IJwtSessionTokenReader jwtReader)
+            ISessionJwtReader jwtReader)
         {
             this.logger = logger;
             this.jwtReader = jwtReader;

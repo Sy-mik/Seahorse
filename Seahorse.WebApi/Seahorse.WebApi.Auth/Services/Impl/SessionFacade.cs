@@ -48,9 +48,23 @@ namespace Seahorse.WebApi.Auth.Services
             if (session is null)
                 throw new ArgumentNullException(nameof(session));
 
-            session.LastAccessUnixMilliseconds = systemClock.UtcNow.ToUnixTimeSeconds();
+            session.LastAccessUnixMilliseconds = systemClock.UtcNow.ToUnixTimeMilliseconds();
             dbContext.Sessions.Update(session);
             await dbContext.SaveChangesAsync().ConfigureAwait(false);
+        }
+
+        public async Task<Session> StartSessionAsync(User user)
+        {
+            var session = new Session
+            {
+                Id = Guid.NewGuid().ToString(),
+                User = user,
+                LastAccessUnixMilliseconds = systemClock.UtcNow.ToUnixTimeMilliseconds()
+            };
+
+            await dbContext.Sessions.AddAsync(session).ConfigureAwait(false);
+            await dbContext.SaveChangesAsync().ConfigureAwait(false);
+            return session;
         }
     }
 }

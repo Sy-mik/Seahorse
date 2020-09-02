@@ -9,6 +9,7 @@ namespace Seahorse.WebApi.Contract.Auth
         public string Id{ get; set; }
 
         [ForeignKey(nameof(User))]
+        [Required]
         public string UserId { get; set; }
 
         public User User { get; set; }
