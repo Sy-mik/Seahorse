@@ -9,7 +9,7 @@ export default function DynamicallyExtensibleFormInputAction({
   onActionChanged,
 }) {
   const [formComponents, setFormComponents] = useState([
-    { key: uuidv4(), name: "", type: InputFormTypes.Text },
+    { key: uuidv4(), name: "Label Name", type: InputFormTypes.Text },
   ]);
 
   function changeInputType(type, key) {
@@ -30,7 +30,7 @@ export default function DynamicallyExtensibleFormInputAction({
       ...formComponents,
       {
         key: uuidv4(),
-        name: "",
+        name: "Label Name",
         type: InputFormTypes.Text,
       },
     ];

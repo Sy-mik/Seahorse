@@ -18,8 +18,9 @@ export default function DroppableAreaContainer({ state, setState }) {
     setState(items);
   }
 
-  function onActionChanged() {
+  function refreshData() {
     const items = [...state];
+    console.log("%j", items);
     setState(items);
   }
 
@@ -35,7 +36,7 @@ export default function DroppableAreaContainer({ state, setState }) {
         state={state}
         ind={1}
         onClick={removeItem}
-        onActionChanged={onActionChanged}
+        onActionChanged={refreshData}
       ></DoppableAreaComponent>
     </DragDropContext>
   );

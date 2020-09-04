@@ -18,6 +18,7 @@ export default function DynamicallyExtensibleInput({
           onChange={(e) => onLabelTypeChange(e.target.value, id)}
           as="select"
           defaultValue="Choose..."
+          style={{ maxWidth: 70 }}
         >
           <option value={InputFormTypes.Text}>📝</option>
           <option value={InputFormTypes.Date}>📅</option>

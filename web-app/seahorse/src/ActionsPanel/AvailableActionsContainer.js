@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { AiOutlineForm } from "react-icons/ai";
-import { BsCheckBox, BsGear } from "react-icons/bs";
+import { AiOutlineForm, AiOutlineUser } from "react-icons/ai";
+import { BsGear } from "react-icons/bs";
 
 import { Button } from "react-bootstrap";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 import { Colors } from "../Constants/Theme";
 import { FormActions } from "../Constants/FormActions";
 
@@ -13,7 +12,7 @@ export default function AvailableActionsContainer({ onClick }) {
     display: "flex",
     marginLeft: 10,
     flexDirection: "column",
-    maxWidth: 100,
+    maxWidth: 70,
   };
   return (
     //   ugly as hell
@@ -53,6 +52,7 @@ export default function AvailableActionsContainer({ onClick }) {
 
           <div style={flexItemStyle}>
             <Button
+              style={{ maxWidth: 70 }}
               variant="outline-primary"
               size="lg"
               type="button"
@@ -62,6 +62,19 @@ export default function AvailableActionsContainer({ onClick }) {
             </Button>
             <h6 style={{ paddingTop: 5 }}>Dynamic </h6>
           </div>
+        </div>
+        <h3>Templates</h3>
+        <div style={flexItemStyle}>
+          <Button
+            style={{ maxWidth: 70 }}
+            variant="outline-primary"
+            size="lg"
+            type="button"
+            onClick={() => onClick(FormActions.DynamicallyExtensibleForm)}
+          >
+            <AiOutlineUser size={25}></AiOutlineUser>
+          </Button>
+          <p style={{ paddingTop: 5 }}>Personal data</p>
         </div>
       </div>
     </div>
