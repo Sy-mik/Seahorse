@@ -18,8 +18,8 @@ export default function AvailableActionsContainer({ onClick }) {
   return (
     //   ugly as hell
     <div>
-      <div style={{ background: Colors.containerBackground, padding: 20 }}>
-        <h1>Available Actions</h1>
+      <div style={{ background: Colors.containerBackground }}>
+        <h3>Available Actions</h3>
         <div
           style={{
             display: "flex",

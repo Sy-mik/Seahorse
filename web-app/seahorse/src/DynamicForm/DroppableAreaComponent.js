@@ -5,8 +5,7 @@ import FormActionFactory from "./FormActions/helpers/FormActionFactory";
 const grid = 10;
 
 const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? "#E5E5E5" : "#E5E5E5",
-  padding: grid,
+  background: isDraggingOver ? "#E5E5E5" : "white",
   // borderRadius: 15,
   width: 500,
 });

@@ -11,6 +11,7 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
         display: "flex",
         flexDirection: "row",
         paddingTop: 20,
+        paddingLeft:20,
       }}
     >
       <div style={{ flex: 3, marginRight: 20 }}>

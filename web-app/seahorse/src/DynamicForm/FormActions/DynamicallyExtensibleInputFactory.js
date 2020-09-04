@@ -9,6 +9,7 @@ export default function DynamicallyExtensibleInput({
   onChangeLabelName,
   onRemoveItem,
   onLabelTypeChange,
+  label,
 }) {
   return (
     <Form.Group as={Row} controlId="formName" style={{ textAlign: "center" }}>
@@ -23,7 +24,6 @@ export default function DynamicallyExtensibleInput({
           <option value={InputFormTypes.CheckBox}>✅</option>
           <option value={InputFormTypes.Radio}>🔘</option>
           <option value={InputFormTypes.Label}>Label</option>
-
         </Form.Control>
       </Col>
       <Col lg={7}>
@@ -32,6 +32,7 @@ export default function DynamicallyExtensibleInput({
           onChange={(e) => onChangeLabelName(e.target.value, id)}
           type="text"
           placeholder="Label name"
+          defaultValue={label}
         />
       </Col>
       <Col lg={1}>
