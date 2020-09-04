@@ -8,7 +8,7 @@ export default function GeneratedFormDynamicViewContainer({ state }) {
   return (
     <>
       {state.map((item) => (
-        <FormItemWrapper item={item}>
+        <FormItemWrapper key={item.id} item={item}>
           <FormItemFactory
             key={item.id}
             action={item.actionType}

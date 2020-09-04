@@ -2,17 +2,18 @@ import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import { FormActions, InputFormTypes } from "../../Constants/FormActions";
 import DynamicallyExtensibleInput from "./DynamicallyExtensibleInputFactory";
+import { v4 as uuidv4 } from "uuid";
 
 export default function DynamicallyExtensibleFormInputAction({
   item,
   onActionChanged,
 }) {
   const [formComponents, setFormComponents] = useState([
-    { key: 0, name: "Label Name", type: InputFormTypes.Text },
+    { key: uuidv4(), name: "Label Name", type: InputFormTypes.Text },
   ]);
 
   function changeInputType(type, key) {
-    const newInputName = formComponents.map((item, i) => {
+    const newInputName = formComponents.map((item) => {
       if (item.key === key) {
         item.type = type;
       }
@@ -28,7 +29,7 @@ export default function DynamicallyExtensibleFormInputAction({
     const newInputNames = [
       ...formComponents,
       {
-        key: formComponents.length,
+        key: uuidv4(),
         name: "Label Name",
         type: InputFormTypes.Text,
       },
@@ -38,18 +39,19 @@ export default function DynamicallyExtensibleFormInputAction({
     onActionChanged();
   }
 
-  function removeItem(i) {
+  function removeItem(key) {
     const removedElements = formComponents.filter(
-      (element, index) => index !== i
+      (element) => element.key !== key
     );
     setFormComponents(removedElements);
     item.inputsNames = removedElements;
+    console.log(removedElements);
     onActionChanged();
   }
 
-  function changeLabelName(name, index) {
-    const newInputName = formComponents.map((item, i) => {
-      if (item.key === index) {
+  function changeLabelName(name, key) {
+    const newInputName = formComponents.map((item) => {
+      if (item.key === key) {
         item.name = name;
       }
       return item;
@@ -79,8 +81,8 @@ export default function DynamicallyExtensibleFormInputAction({
               onRemoveItem={removeItem}
               onLabelTypeChange={changeInputType}
               key={index}
-              id={index}
-              labelName={item}
+              id={item.key}
+              labelName={item.key}
             ></DynamicallyExtensibleInput>
           ))}
         </Form>

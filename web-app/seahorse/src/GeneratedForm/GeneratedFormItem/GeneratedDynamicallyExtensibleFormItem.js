@@ -7,12 +7,10 @@ function ItemGenerator({ type, inputName, index }) {
     case InputFormTypes.Text: {
       return (
         <div>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label className="text-center">{inputName}</Form.Label>
-              <Form.Control key={index} type="text" placeholder="User input" />
-            </Form.Group>
-          </Form>
+          <Form.Group controlId="formName">
+            <Form.Label className="text-center">{inputName}</Form.Label>
+            <Form.Control key={index} type="text" placeholder="User input" />
+          </Form.Group>
         </div>
       );
     }
@@ -20,23 +18,31 @@ function ItemGenerator({ type, inputName, index }) {
     case InputFormTypes.Date: {
       return (
         <div>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label className="text-center">{inputName}</Form.Label>
-              <Form.Control type="date" placeholder="User input" /> 
-            </Form.Group>
-          </Form>
+          <Form.Group controlId="formName">
+            <Form.Label className="text-center">{inputName}</Form.Label>
+            <Form.Control type="date" placeholder="User input" />
+          </Form.Group>
         </div>
       );
     }
     case InputFormTypes.CheckBox: {
       return (
         <div>
-          <Form>
-            <Form.Group controlId={`formBasicCheckbox${Math.random()}`}>
-              <Form.Check type="checkbox" label={inputName} />
-            </Form.Group>
-          </Form>
+          <Form.Group controlId={`formBasicCheckbox${Math.random()}`}>
+            <Form.Check type="checkbox" label={inputName} />
+          </Form.Group>
+        </div>
+      );
+    }
+    case InputFormTypes.Radio: {
+      return (
+        <div>
+          <Form.Check
+            type="radio"
+            name="formHorizontalRadios"
+            label={inputName}
+            id={index}
+          />
         </div>
       );
     }
@@ -50,12 +56,10 @@ function ItemGenerator({ type, inputName, index }) {
     default: {
       return (
         <div>
-          <Form>
-            <Form.Group controlId="formName">
-              <Form.Label className="text-center">{inputName}</Form.Label>
-              <Form.Control key={index} type="text" placeholder="User input" />
-            </Form.Group>
-          </Form>
+          <Form.Group controlId="formName">
+            <Form.Label className="text-center">{inputName}</Form.Label>
+            <Form.Control key={index} type="text" placeholder="User input" />
+          </Form.Group>
         </div>
       );
     }
@@ -65,14 +69,18 @@ function ItemGenerator({ type, inputName, index }) {
 export default function GeneratedDynamicallyExtensibleFormItem({ item }) {
   return (
     <div>
-      {item.inputsNames?.map((item, index) => (
-        <ItemGenerator
-          key={index}
-          index={index}
-          type={item.type}
-          inputName={item.name}
-        ></ItemGenerator>
-      ))}
+      <Form>
+        <Form.Group controlId={`formBasicCheckbox${Math.random()}`}>
+          {item.inputsNames?.map((item, index) => (
+            <ItemGenerator
+              key={index}
+              index={index}
+              type={item.type}
+              inputName={item.name}
+            ></ItemGenerator>
+          ))}
+        </Form.Group>
+      </Form>
     </div>
   );
 }

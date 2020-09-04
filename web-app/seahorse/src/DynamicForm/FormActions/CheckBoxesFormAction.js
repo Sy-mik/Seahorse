@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { BsCheckBox } from "react-icons/bs";
 
 export default function CheckBoxFormAction() {
-  const [checkBoxes, setCheckBoxes] = useState([uuidv4]);
+  const [checkBoxes, setCheckBoxes] = useState([uuidv4()]);
 
   return (
     <div>

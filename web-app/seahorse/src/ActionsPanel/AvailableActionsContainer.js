@@ -20,7 +20,6 @@ export default function AvailableActionsContainer({ onClick }) {
     <div>
       <div style={{ background: Colors.containerBackground, padding: 20 }}>
         <h1>Available Actions</h1>
-
         <div
           style={{
             display: "flex",
@@ -28,7 +27,7 @@ export default function AvailableActionsContainer({ onClick }) {
             flexWrap: "wrap",
           }}
         >
-          <div style={flexItemStyle}>
+          {/* <div style={flexItemStyle}>
             <Button
               variant="outline-primary"
               size="lg"
@@ -50,7 +49,7 @@ export default function AvailableActionsContainer({ onClick }) {
               <BsCheckBox size={25} />
             </Button>
             <h6 style={{ paddingTop: 5 }}>Checkboxes</h6>
-          </div>
+          </div> */}
 
           <div style={flexItemStyle}>
             <Button
