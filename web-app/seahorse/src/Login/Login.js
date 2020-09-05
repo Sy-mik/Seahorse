@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { authServiceLogIn } from "../services/AuthService";
+import { FaKey, FaUserCircle } from "react-icons/fa";
+import "./Login.scss";
 
 export default function Login() {
   const [login, setLogin] = useState("");
@@ -12,10 +14,12 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={logIn}>
-      <div>
-        <div>
-          <label htmlFor="login">Login</label>
+    <div className="login-form-wrapper">
+      <form onSubmit={logIn} className="login-panel">
+        <div className="username">
+          <label htmlFor="login">
+            Login <FaUserCircle />
+          </label>
           <input
             value={login}
             type="text"
@@ -24,8 +28,10 @@ export default function Login() {
             onChange={(e) => setLogin(e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="password">
+          <label htmlFor="password">
+            Password <FaKey />
+          </label>
           <input
             value={password}
             type="password"
@@ -35,9 +41,11 @@ export default function Login() {
           />
         </div>
         <div className="submit-button">
-          <button type="submit">Login</button>
+          <button type="submit" className="button button--primary">
+            Log in
+          </button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
