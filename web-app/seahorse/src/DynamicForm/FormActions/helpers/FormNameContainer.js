@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Col } from "react-bootstrap";
 
-export default function FormNameContainer({ onFormNamechange }) {
+export default function FormNameContainer({ name, onFormNamechange }) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Form>
@@ -11,6 +11,7 @@ export default function FormNameContainer({ onFormNamechange }) {
             <Form.Control
               onChange={(e) => onFormNamechange(e.target.value)}
               type="text"
+              defaultValue={name}
               placeholder="Form name"
             />
           </Col>

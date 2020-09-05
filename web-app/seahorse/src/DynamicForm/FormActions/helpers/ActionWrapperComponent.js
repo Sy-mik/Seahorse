@@ -9,6 +9,7 @@ export default function ActionWrapperComponent({
   snapshot,
   index,
   onFormNamechange,
+  item,
   ...props
 }) {
   const grid = 8;
@@ -44,6 +45,7 @@ export default function ActionWrapperComponent({
       </Button>
       <div style={{}}>
         <FormNameContainer
+          name={item.formName}
           onFormNamechange={onFormNamechange}
         ></FormNameContainer>
         {props.children}

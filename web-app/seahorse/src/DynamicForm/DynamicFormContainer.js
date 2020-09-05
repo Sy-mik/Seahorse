@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import DynamicFormComponent from "./DynamicFormComponent";
 import { FormTemplates } from "../Constants/FormActions";
 import { PersonalDataFormTemplate } from "../Templates/PersonalDataFormTemplate";
+import { AddictionsFormTemplate } from "../Templates/AddictionsFormTemplate";
 
 export default function DynamicFormContainer() {
   const [state, setState] = useState([]);
@@ -28,6 +29,9 @@ export default function DynamicFormContainer() {
     switch (itemType) {
       case FormTemplates.PersonalDataFormTemplate:
         item = PersonalDataFormTemplate();
+        break;
+      case FormTemplates.AddictionsFormTemplate:
+        item = AddictionsFormTemplate();
         break;
       default:
         item = blankItem(uuid, itemType);

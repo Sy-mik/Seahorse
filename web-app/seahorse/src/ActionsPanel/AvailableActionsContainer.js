@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { AiOutlineForm, AiOutlineUser } from "react-icons/ai";
+
+import { GiCigarette } from "react-icons/gi";
+
 import { BsGear } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
 
@@ -28,7 +31,7 @@ function AvailableActionItem({ onClick, name, ...props }) {
       >
         {props.children}
       </Button>
-      <p style={{ paddingTop: 5 }}>{name} </p>
+      <p style={{ paddingTop: 5, fontSize:12 }}>{name} </p>
     </div>
   );
 }
@@ -56,7 +59,16 @@ export default function AvailableActionsContainer({ onClick }) {
             <AiOutlineForm size={25} />
           </AvailableActionItem>
         </div>
-        <h3>Templates</h3>
+      </div>
+      <h3>Templates</h3>
+
+      <div
+        style={{
+          display: "flex",
+          marginLeft: spaceBetweenItems,
+          flexWrap: "wrap",
+        }}
+      >
         <AvailableActionItem
           name="Personal data"
           onClick={() =>
@@ -64,6 +76,14 @@ export default function AvailableActionsContainer({ onClick }) {
           }
         >
           <AiOutlineUser size={25}></AiOutlineUser>
+        </AvailableActionItem>
+        <AvailableActionItem
+          name="Addictions"
+          onClick={() =>
+            onClick(FormTemplates.AddictionsFormTemplate, uuidv4())
+          }
+        >
+          <GiCigarette size={25}></GiCigarette>
         </AvailableActionItem>
       </div>
     </div>

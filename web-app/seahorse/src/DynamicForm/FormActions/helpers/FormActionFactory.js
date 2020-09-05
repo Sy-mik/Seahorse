@@ -44,6 +44,7 @@ export default function FormActionFactory({
           onFormNamechange={onFormNameChange}
           provided={provided}
           snapshot={snapshot}
+          item={item}
         >
           <DynamicallyExtensibleFormInputAction
             item={item}

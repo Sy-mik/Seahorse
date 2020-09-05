@@ -5,27 +5,27 @@ export function PersonalDataFormTemplate() {
     id: "",
     inputs: [
       {
-        key: "715cf8ec-da55-452e-bd19-b1ea5efea790",
+        key: "0",
         name: "Name",
         type: "Text",
       },
       {
-        key: "be98432b-8dc2-4639-a68d-2a1db7692ca1",
+        key: "1",
         name: "Birth date",
         type: "Date",
       },
       {
-        key: "7ec96e6a-95e5-4c3b-a69e-4770222b543b",
+        key: "2",
         name: "Has a dog",
         type: "Label",
       },
       {
-        key: "c59f601d-b766-4a78-85fa-925ea6ed850b",
+        key: "3",
         name: "Yes",
         type: "Radio",
       },
       {
-        key: "d655faca-63c0-4c38-bf67-fada696ebc52",
+        key: "4",
         name: "No",
         type: "Radio",
       },

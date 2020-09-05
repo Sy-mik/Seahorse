@@ -4,6 +4,7 @@ export const FormTemplates = {
   RadioForm: "RadioForm",
   DynamicallyExtensibleForm: "DynamicallyExtensibleForm",
   PersonalDataFormTemplate: "PersonalDataFormTemplate",
+  AddictionsFormTemplate: "AddictionsFormTemplate",
 };
 
 export const InputFormTypes = {
