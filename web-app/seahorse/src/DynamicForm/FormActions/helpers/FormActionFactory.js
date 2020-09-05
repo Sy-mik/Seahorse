@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormActions } from "../../../Constants/FormActions";
+import { FormTemplates } from "../../../Constants/FormActions";
 import InputFormAction from "../InputFormAction";
 import ActionWrapperComponent from "./ActionWrapperComponent";
 import CheckBoxFormAction from "../CheckBoxesFormAction";
@@ -20,7 +20,7 @@ export default function FormActionFactory({
   }
 
   switch (action) {
-    case FormActions.TextInputForm:
+    case FormTemplates.TextInputForm:
       return (
         <ActionWrapperComponent
           index={index}
@@ -36,7 +36,7 @@ export default function FormActionFactory({
         </ActionWrapperComponent>
       );
 
-    case FormActions.DynamicallyExtensibleForm:
+    case FormTemplates.DynamicallyExtensibleForm:
       return (
         <ActionWrapperComponent
           index={index}

@@ -1,8 +1,9 @@
-export const FormActions = {
+export const FormTemplates = {
   TextInputForm: "TextInputForm",
   CheckBoxesForm: "CheckboxesForm",
   RadioForm: "RadioForm",
   DynamicallyExtensibleForm: "DynamicallyExtensibleForm",
+  PersonalDataFormTemplate: "PersonalDataFormTemplate",
 };
 
 export const InputFormTypes = {
@@ -10,7 +11,7 @@ export const InputFormTypes = {
   // Number: "Number",
   Date: "Date",
   CheckBox: "Checkbox",
-  Radio:'Radio',
+  Radio: "Radio",
   Label: "Label",
 };
 

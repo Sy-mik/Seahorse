@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import { FormActions, InputFormTypes } from "../../Constants/FormActions";
+import { FormTemplates, InputFormTypes } from "../../Constants/FormActions";
 
 function ItemGenerator({ type, inputName, index }) {
   switch (type) {
@@ -71,7 +71,7 @@ export default function GeneratedDynamicallyExtensibleFormItem({ item }) {
     <div>
       <Form>
         <Form.Group controlId={`formBasicCheckbox${Math.random()}`}>
-          {item.inputsNames?.map((item, index) => (
+          {item.inputs?.map((item, index) => (
             <ItemGenerator
               key={index}
               index={index}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import DoppableAreaComponent from "./DroppableAreaComponent";
+import { v4 as uuidv4 } from "uuid";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -20,7 +21,6 @@ export default function DroppableAreaContainer({ state, setState }) {
 
   function refreshData() {
     const items = [...state];
-    console.log("%j", items);
     setState(items);
   }
 

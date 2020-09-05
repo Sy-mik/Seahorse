@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
-import { FormActions, InputFormTypes } from "../../Constants/FormActions";
+import { FormTemplates, InputFormTypes } from "../../Constants/FormActions";
 import DynamicallyExtensibleInput from "./DynamicallyExtensibleInputFactory";
 import { v4 as uuidv4 } from "uuid";
 
@@ -9,7 +9,7 @@ export default function DynamicallyExtensibleFormInputAction({
   onActionChanged,
 }) {
   const [formComponents, setFormComponents] = useState([
-    { key: uuidv4(), name: "Label Name", type: InputFormTypes.Text },
+    ...item.inputs,
   ]);
 
   function changeInputType(type, key) {
@@ -21,7 +21,7 @@ export default function DynamicallyExtensibleFormInputAction({
     });
 
     setFormComponents(newInputName);
-    item.inputsNames = newInputName;
+    item.inputs = newInputName;
     onActionChanged();
   }
 
@@ -35,7 +35,7 @@ export default function DynamicallyExtensibleFormInputAction({
       },
     ];
     setFormComponents(newInputNames);
-    item.inputsNames = newInputNames;
+    item.inputs = newInputNames;
     onActionChanged();
   }
 
@@ -44,7 +44,7 @@ export default function DynamicallyExtensibleFormInputAction({
       (element) => element.key !== key
     );
     setFormComponents(removedElements);
-    item.inputsNames = removedElements;
+    item.inputs = removedElements;
     console.log(removedElements);
     onActionChanged();
   }
@@ -58,14 +58,9 @@ export default function DynamicallyExtensibleFormInputAction({
     });
 
     setFormComponents(newInputName);
-    item.inputsNames = newInputName;
+    item.inputs = newInputName;
     onActionChanged();
   }
-
-  // function changeLabelName(name, index) {
-  //   const itemCheck = (item, index) => item.key === index;
-  //   const updateFunc = (item, changedValue) => (item.name = changedValue);
-  // }
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -80,6 +75,7 @@ export default function DynamicallyExtensibleFormInputAction({
               onChangeLabelName={changeLabelName}
               onRemoveItem={removeItem}
               onLabelTypeChange={changeInputType}
+              type={item.type}
               key={index}
               id={item.key}
               label={item.name}
