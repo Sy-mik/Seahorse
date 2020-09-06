@@ -4,16 +4,24 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Seahorse.WebApi.Configuration;
+using Seahorse.WebApi.Maintenance;
 
 namespace Seahorse.WebApi
 {
     public class Startup
     {
         private readonly IConfiguration configuration;
+        private readonly IWebHostEnvironment env;
+        private readonly SpaConfiguration spaConfiguration;
 
-        public Startup(IConfiguration configuration)
+        public Startup(
+            IConfiguration configuration,
+            IWebHostEnvironment env)
         {
             this.configuration = configuration;
+            this.env = env;
+            spaConfiguration = configuration.GetSection(SpaConfiguration.Spa).Get<SpaConfiguration>();
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -22,8 +30,11 @@ namespace Seahorse.WebApi
         {
             var mvcBuilder = services.AddMvcCore();
             services.UseSeahorseDatabase(configuration);
-            services.UseSeahorseAuth(mvcBuilder);
-            services.AddSpaStaticFiles(configuration => configuration.RootPath = "../../web-app/seahorse/build");
+            services.UseSeahorseAuth(mvcBuilder, configuration);
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = spaConfiguration.StaticFilesRootPath);
+
+            if (env.IsDevelopment())
+                services.AddHostedService<ApplicationPartsLogger>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,12 +45,14 @@ namespace Seahorse.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
             app.UseSpaStaticFiles();
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseEndpoints(builder => builder.MapControllers());
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "../../web-app/seahorse";
+                spa.Options.SourcePath = spaConfiguration.SourcePath;
                 if (env.IsDevelopment())
                 {
                     spa.UseReactDevelopmentServer(npmScript: "start");
