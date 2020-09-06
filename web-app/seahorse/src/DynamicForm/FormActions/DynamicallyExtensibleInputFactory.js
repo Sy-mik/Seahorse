@@ -1,8 +1,6 @@
 import React from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import { FormTemplates, InputFormTypes } from "../../Constants/FormActions";
-import { AiOutlineForm } from "react-icons/ai";
-import { BsCheckBox } from "react-icons/bs";
+import { InputFormTypes } from "../../Constants/FormActions";
 
 export default function DynamicallyExtensibleInput({
   id,
@@ -10,7 +8,7 @@ export default function DynamicallyExtensibleInput({
   onRemoveItem,
   onLabelTypeChange,
   label,
-  type
+  type,
 }) {
   return (
     <Form.Group as={Row} controlId="formName" style={{ textAlign: "center" }}>

@@ -5,6 +5,7 @@ export const FormTemplates = {
   DynamicallyExtensibleForm: "DynamicallyExtensibleForm",
   PersonalDataFormTemplate: "PersonalDataFormTemplate",
   AddictionsFormTemplate: "AddictionsFormTemplate",
+  ConditionalForm: "ConditionalForm",
 };
 
 export const InputFormTypes = {

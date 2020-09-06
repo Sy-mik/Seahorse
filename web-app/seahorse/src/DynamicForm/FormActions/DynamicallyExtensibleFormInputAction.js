@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
-import { FormTemplates, InputFormTypes } from "../../Constants/FormActions";
+import { InputFormTypes } from "../../Constants/FormActions";
 import DynamicallyExtensibleInput from "./DynamicallyExtensibleInputFactory";
 import { v4 as uuidv4 } from "uuid";
 
@@ -8,9 +8,7 @@ export default function DynamicallyExtensibleFormInputAction({
   item,
   onActionChanged,
 }) {
-  const [formComponents, setFormComponents] = useState([
-    ...item.inputs,
-  ]);
+  const [formComponents, setFormComponents] = useState([...item.inputs]);
 
   function changeInputType(type, key) {
     const newInputName = formComponents.map((item) => {

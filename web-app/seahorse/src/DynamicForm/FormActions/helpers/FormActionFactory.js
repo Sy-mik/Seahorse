@@ -4,6 +4,7 @@ import InputFormAction from "../InputFormAction";
 import ActionWrapperComponent from "./ActionWrapperComponent";
 import CheckBoxFormAction from "../CheckBoxesFormAction";
 import DynamicallyExtensibleFormInputAction from "../DynamicallyExtensibleFormInputAction";
+import ConditionalFormAction from "../ConditionalFormAction";
 
 export default function FormActionFactory({
   action,
@@ -12,6 +13,7 @@ export default function FormActionFactory({
   item,
   snapshot,
   index,
+  state,
   onActionChanged,
 }) {
   function onFormNameChange(name) {
@@ -50,6 +52,24 @@ export default function FormActionFactory({
             item={item}
             onActionChanged={onActionChanged}
           ></DynamicallyExtensibleFormInputAction>
+        </ActionWrapperComponent>
+      );
+
+    case FormTemplates.ConditionalForm:
+      return (
+        <ActionWrapperComponent
+          index={index}
+          onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
+          provided={provided}
+          snapshot={snapshot}
+          item={item}
+        >
+          <ConditionalFormAction
+            item={item}
+            onActionChanged={onActionChanged}
+            state={state}
+          ></ConditionalFormAction>
         </ActionWrapperComponent>
       );
 

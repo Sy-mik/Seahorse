@@ -3,6 +3,8 @@ import AvailableActionsContainer from "../ActionsPanel/AvailableActionsContainer
 import GeneratedFormDynamicViewContainer from "../GeneratedForm/GeneratedFormDynamicViewContainer";
 import { Colors } from "../Constants/Theme";
 import DroppableAreaContainer from "./DroppableAreaContainer";
+import TreeViewComponent from "../FormTreeView/TreeViewComponent";
+import { Tabs, Tab } from "react-bootstrap";
 
 export default function DynamicFormComponent({ state, setState, addItem }) {
   return (
@@ -33,11 +35,18 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
           marginRight: 20,
           marginLeft: 20,
           backgroundColor: Colors.backgroundColor,
-        }}
+        }} //
       >
-        <GeneratedFormDynamicViewContainer
-          state={state}
-        ></GeneratedFormDynamicViewContainer>
+        <Tabs defaultActiveKey="formView" id="uncontrolled-tab-example">
+          <Tab eventKey="formView" title="Form">
+            <GeneratedFormDynamicViewContainer
+              state={state}
+            ></GeneratedFormDynamicViewContainer>
+          </Tab>
+          <Tab eventKey="treeView" title="Tree">
+            <TreeViewComponent></TreeViewComponent>{" "}
+          </Tab>
+        </Tabs>
       </div>
     </div>
   );

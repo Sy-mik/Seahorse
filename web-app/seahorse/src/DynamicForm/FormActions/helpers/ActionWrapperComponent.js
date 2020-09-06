@@ -26,7 +26,7 @@ export default function ActionWrapperComponent({
         height: "auto",
         borderWidth: "1px",
         boxShadow: "0px 0px 14px 0px rgba(0,0,0,0.50)",
-
+        borderRadius: 5,
         borderStyle: snapshot.isDragging ? "solid" : "none",
         // need to be applied on draggables
         ...provided.draggableProps.style,

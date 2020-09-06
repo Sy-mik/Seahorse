@@ -6,7 +6,7 @@ export default function FormNameContainer({ name, onFormNamechange }) {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Form>
         <Form.Group controlId="formName">
-          <h3 style={{ textAlign: "center" }}>Form Name</h3>
+          <h5 style={{ textAlign: "center" }}>Form Name</h5>
           <Col>
             <Form.Control
               onChange={(e) => onFormNamechange(e.target.value)}

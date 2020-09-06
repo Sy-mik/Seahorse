@@ -27,6 +27,7 @@ export default function DroppableAreaComponent({
             <Draggable key={item.id} draggableId={item.id} index={index}>
               {(provided, snapshot) => (
                 <FormActionFactory
+                  state={state}
                   onActionChanged={onActionChanged}
                   item={item}
                   action={item.actionType}

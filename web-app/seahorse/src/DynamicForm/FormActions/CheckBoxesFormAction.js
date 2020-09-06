@@ -10,7 +10,6 @@ export default function CheckBoxFormAction() {
   return (
     <div>
       <BsCheckBox size={20}></BsCheckBox>
-
       <Form>
         <Form.Group as={Row} controlId="formName">
           <Form.Label className="text-center" column sm={3}>

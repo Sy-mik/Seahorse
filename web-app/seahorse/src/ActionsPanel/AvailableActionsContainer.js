@@ -1,40 +1,12 @@
 import React, { useState } from "react";
 import { AiOutlineForm, AiOutlineUser } from "react-icons/ai";
-
 import { GiCigarette } from "react-icons/gi";
+import { CgListTree } from "react-icons/cg";
 
-import { BsGear } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
-
-import { Button } from "react-bootstrap";
 import { Colors } from "../Constants/Theme";
 import { FormTemplates } from "../Constants/FormActions";
-
-function AvailableActionItem({ onClick, name, ...props }) {
-  const flexItemStyle = {
-    display: "flex",
-    marginLeft: 10,
-    flexDirection: "column",
-    maxWidth: 65,
-  };
-
-  return (
-    <div style={flexItemStyle}>
-      <Button
-        style={{ maxWidth: 65 }}
-        variant="outline-primary"
-        size="lg"
-        type="button"
-        onClick={() =>
-          onClick(FormTemplates.DynamicallyExtensibleForm, uuidv4())
-        }
-      >
-        {props.children}
-      </Button>
-      <p style={{ paddingTop: 5, fontSize:12 }}>{name} </p>
-    </div>
-  );
-}
+import { AvailableActionItem } from "./AvailableActionItem";
 
 export default function AvailableActionsContainer({ onClick }) {
   const spaceBetweenItems = 5;
@@ -58,8 +30,15 @@ export default function AvailableActionsContainer({ onClick }) {
           >
             <AiOutlineForm size={25} />
           </AvailableActionItem>
+          <AvailableActionItem
+            name="Conditional"
+            onClick={() => onClick(FormTemplates.ConditionalForm, uuidv4())}
+          >
+            <CgListTree size={25}></CgListTree>
+          </AvailableActionItem>
         </div>
       </div>
+
       <h3>Templates</h3>
 
       <div
