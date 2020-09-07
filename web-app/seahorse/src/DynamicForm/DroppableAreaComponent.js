@@ -24,7 +24,8 @@ export default function DroppableAreaComponent({
         >
           <h3>Builder</h3>
           {state.map((item, index) => (
-            <Draggable key={item.id} draggableId={item.id} index={index}>
+            <Draggable key={item.id}
+            draggableId={item.id} index={index}>
               {(provided, snapshot) => (
                 <FormActionFactory
                   state={state}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, Card } from "react-bootstrap";
 import { InputFormTypes } from "../../Constants/FormActions";
 import DynamicallyExtensibleInput from "./DynamicallyExtensibleInputFactory";
 import { v4 as uuidv4 } from "uuid";
@@ -69,36 +69,39 @@ export default function DynamicallyExtensibleFormInputAction({
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div>
-        {formComponents.length > 0 ? (
-          <Form>
-            <Row>
-              <Col sm={3}>Type</Col>
-              <Col sm={7}>Label name</Col>
-            </Row>
-            {formComponents.map((item, index) => (
-              <DynamicallyExtensibleInput
-                onChangeLabelName={changeLabelName}
-                onRemoveItem={removeItem}
-                onLabelTypeChange={changeInputType}
-                type={item.type}
-                key={index}
-                id={item.key}
-                label={item.name}
-              ></DynamicallyExtensibleInput>
-            ))}
-          </Form>
-        ) : null}
+    <>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div>
+          {formComponents.length > 0 ? (
+            <Form>
+              <Row>
+                <Col sm={3}>Type</Col>
+                <Col sm={7}>Label name</Col>
+              </Row>
+              {formComponents.map((item, index) => (
+                <DynamicallyExtensibleInput
+                  onChangeLabelName={changeLabelName}
+                  onRemoveItem={removeItem}
+                  onLabelTypeChange={changeInputType}
+                  type={item.type}
+                  key={index}
+                  id={item.key}
+                  label={item.name}
+                ></DynamicallyExtensibleInput>
+              ))}
+            </Form>
+          ) : null}
+        </div>
       </div>
-      <Button
-        style={{ alignSelf: "right" }}
+      <Card.Link
         onClick={() => {
           addNextField();
         }}
+        variant="danger"
+        href="#"
       >
         Add next item
-      </Button>
-    </div>
+      </Card.Link>
+    </>
   );
 }
