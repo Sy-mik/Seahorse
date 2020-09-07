@@ -12,7 +12,7 @@ export default function DroppableAreaComponent({
   ind,
   state,
   onClick,
-  onActionChanged,
+  onDataRefreshed,
 }) {
   return (
     <Droppable key={ind} droppableId={`${ind}`}>
@@ -28,7 +28,7 @@ export default function DroppableAreaComponent({
               {(provided, snapshot) => (
                 <FormActionFactory
                   state={state}
-                  onActionChanged={onActionChanged}
+                  onDataRefreshed={onDataRefreshed}
                   item={item}
                   action={item.actionType}
                   index={index}

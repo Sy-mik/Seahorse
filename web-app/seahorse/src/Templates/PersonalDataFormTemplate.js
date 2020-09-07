@@ -1,34 +1,48 @@
+import { v4 as uuidv4 } from "uuid";
 export function PersonalDataFormTemplate() {
-  return {
-    actionType: "DynamicallyExtensibleForm",
-    formName: "Personal data",
-    id: "",
-    inputs: [
-      {
-        key: "0",
-        name: "Name",
-        type: "Text",
-      },
-      {
-        key: "1",
-        name: "Birth date",
-        type: "Date",
-      },
-      {
-        key: "2",
-        name: "Has a dog",
-        type: "Label",
-      },
-      {
-        key: "3",
-        name: "Yes",
-        type: "Radio",
-      },
-      {
-        key: "4",
-        name: "No",
-        type: "Radio",
-      },
-    ],
-  };
+  return [
+    {
+      id: uuidv4(),
+      actionType: "LabelForm",
+      formName: "Personal Data",
+      inputs: [],
+      key: uuidv4(),
+    },
+    {
+      id: uuidv4(),
+      actionType: "TextInputForm",
+      formName: "Your form name",
+      inputs: [
+        {
+          key: uuidv4(),
+          name: "Name",
+          type: "Text",
+          value: "",
+          hidden: false,
+        },
+        {
+          key: uuidv4(),
+          name: "Surname",
+          type: "Text",
+          value: "",
+        },
+      ],
+      key: uuidv4(),
+    },
+    {
+      id: uuidv4(),
+      actionType: "DateForm",
+      formName: "Your form name",
+      inputs: [
+        {
+          key: uuidv4(),
+          name: "Date of birth",
+          type: "Date",
+          value: "",
+          hidden: false,
+        },
+      ],
+      key: uuidv4(),
+    },
+  ];
 }

@@ -10,8 +10,10 @@ export default function ActionWrapperComponent({
   index,
   onFormNamechange,
   item,
+  name,
   ...props
 }) {
+  console.log(item);
   const grid = 8;
   return (
     <div
@@ -33,23 +35,29 @@ export default function ActionWrapperComponent({
       }}
     >
       {/* <IoIosRemoveCircleOutline/> */}
-      <Button
-        style={{ float: "right", marginLeft: 10 }}
-        onClick={() => {
-          onDelete(index);
+      <div
+        style={{
+          width: "100%",
+          paddingRight: 15,
+          marginBottom: 10,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between" 
         }}
-        variant="outline-danger"
-        size="sm"
       >
-        X
-      </Button>
-      <div style={{}}>
-        <FormNameContainer
-          name={item.formName}
-          onFormNamechange={onFormNamechange}
-        ></FormNameContainer>
-        {props.children}
+        <h2>{name}</h2>
+        <Button
+          style={{ justifySelf: "flex-end", width:30, height:30 }}
+          onClick={() => {
+            onDelete(index);
+          }}
+          variant="outline-danger"
+          size="sm"
+        >
+          X
+        </Button>
       </div>
+      <div style={{ display: "block" }}>{props.children}</div>
     </div>
   );
 }

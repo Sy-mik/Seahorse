@@ -2,22 +2,36 @@ import React, { useState } from "react";
 import { FormTemplates } from "../../../Constants/FormActions";
 import GeneratedInputFormItem from "../GeneratedInputFormItem";
 import GeneratedDynamicallyExtensibleFormItem from "../GeneratedDynamicallyExtensibleFormItem";
+import ConditionalFormItem from "../ConditionalFormItem";
 
-export default function FormItemFactory({ action, item }) {
+export default function FormItemFactory({
+  state,
+  action,
+  item,
+  onDataRefreshed,
+}) {
   switch (action) {
-    case FormTemplates.DynamicallyExtensibleForm:
+    case FormTemplates.ConditionalForm:
       return (
-          <GeneratedDynamicallyExtensibleFormItem
-            item={item}
-          ></GeneratedDynamicallyExtensibleFormItem>
+        <ConditionalFormItem
+          key={item.id}
+          state={state}
+          item={item}
+          onDataRefreshed={onDataRefreshed}
+        ></ConditionalFormItem>
       );
-
-    case FormTemplates.TextInputForm:
+    case FormTemplates.LabelForm:
       return (
-          <GeneratedInputFormItem item={item}></GeneratedInputFormItem>
-      );
+        <h4 style={{textAlign:'center', padding:5}}>{item.formName}</h4>
+        );
 
     default:
-      return <GeneratedInputFormItem item={item}></GeneratedInputFormItem>;
+      return (
+        <GeneratedDynamicallyExtensibleFormItem
+          key={item.id}
+          onDataRefreshed={onDataRefreshed}
+          item={item}
+        ></GeneratedDynamicallyExtensibleFormItem>
+      );
   }
 }

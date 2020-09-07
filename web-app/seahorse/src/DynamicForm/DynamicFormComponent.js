@@ -6,7 +6,12 @@ import DroppableAreaContainer from "./DroppableAreaContainer";
 import TreeViewComponent from "../FormTreeView/TreeViewComponent";
 import { Tabs, Tab } from "react-bootstrap";
 
-export default function DynamicFormComponent({ state, setState, addItem }) {
+export default function DynamicFormComponent({
+  state,
+  setState,
+  addItem,
+  onDataRefreshed,
+}) {
   return (
     <div
       style={{
@@ -25,6 +30,7 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
       <div style={{ flex: 4 }}>
         <DroppableAreaContainer
           state={state}
+          onDataRefreshed={onDataRefreshed}
           setState={setState}
         ></DroppableAreaContainer>
       </div>
@@ -40,11 +46,12 @@ export default function DynamicFormComponent({ state, setState, addItem }) {
         <Tabs defaultActiveKey="formView" id="uncontrolled-tab-example">
           <Tab eventKey="formView" title="Form">
             <GeneratedFormDynamicViewContainer
+              onDataRefreshed={onDataRefreshed}
               state={state}
             ></GeneratedFormDynamicViewContainer>
           </Tab>
           <Tab eventKey="treeView" title="Tree">
-            <TreeViewComponent></TreeViewComponent>{" "}
+            <TreeViewComponent formView={state}></TreeViewComponent>{" "}
           </Tab>
         </Tabs>
       </div>

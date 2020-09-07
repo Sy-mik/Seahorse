@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { FormTemplates } from "../../../Constants/FormActions";
+import { FormTemplates, InputFormTypes } from "../../../Constants/FormActions";
 import InputFormAction from "../InputFormAction";
 import ActionWrapperComponent from "./ActionWrapperComponent";
 import CheckBoxFormAction from "../CheckBoxesFormAction";
 import DynamicallyExtensibleFormInputAction from "../DynamicallyExtensibleFormInputAction";
 import ConditionalFormAction from "../ConditionalFormAction";
+import ActionFormContainer from "../ActionFormContainer";
+import FormNameContainer from "./FormNameContainer";
 
 export default function FormActionFactory({
   action,
@@ -14,11 +16,11 @@ export default function FormActionFactory({
   snapshot,
   index,
   state,
-  onActionChanged,
+  onDataRefreshed,
 }) {
   function onFormNameChange(name) {
     item.formName = name;
-    onActionChanged();
+    onDataRefreshed();
   }
 
   switch (action) {
@@ -26,15 +28,74 @@ export default function FormActionFactory({
       return (
         <ActionWrapperComponent
           index={index}
-          onFormNamechange={onFormNameChange}
           onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
           provided={provided}
           snapshot={snapshot}
+          name="Text form"
+          item={item}
         >
-          <InputFormAction
+          <ActionFormContainer
             item={item}
-            onActionChanged={onActionChanged}
-          ></InputFormAction>
+            onActionChanged={onDataRefreshed}
+            type={InputFormTypes.Text}
+          ></ActionFormContainer>
+        </ActionWrapperComponent>
+      );
+
+    case FormTemplates.LabelForm:
+      return (
+        <ActionWrapperComponent
+          index={index}
+          onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
+          provided={provided}
+          snapshot={snapshot}
+          name="Label"
+          item={item}
+        >
+          <FormNameContainer
+            name={item.formName}
+            onFormNamechange={onFormNameChange}
+          ></FormNameContainer>
+        </ActionWrapperComponent>
+      );
+
+    case FormTemplates.CheckBoxesForm:
+      return (
+        <ActionWrapperComponent
+          index={index}
+          onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
+          provided={provided}
+          snapshot={snapshot}
+          name="Checkbox"
+          item={item}
+        >
+          <ActionFormContainer
+            item={item}
+            onActionChanged={onDataRefreshed}
+            type={InputFormTypes.CheckBox}
+          ></ActionFormContainer>
+        </ActionWrapperComponent>
+      );
+
+    case FormTemplates.DateForm:
+      return (
+        <ActionWrapperComponent
+          index={index}
+          onDelete={onDelete}
+          onFormNamechange={onFormNameChange}
+          provided={provided}
+          snapshot={snapshot}
+          name="Date"
+          item={item}
+        >
+          <ActionFormContainer
+            item={item}
+            onActionChanged={onDataRefreshed}
+            type={InputFormTypes.Date}
+          ></ActionFormContainer>
         </ActionWrapperComponent>
       );
 
@@ -46,11 +107,12 @@ export default function FormActionFactory({
           onFormNamechange={onFormNameChange}
           provided={provided}
           snapshot={snapshot}
+          name="Dynamic"
           item={item}
         >
           <DynamicallyExtensibleFormInputAction
             item={item}
-            onActionChanged={onActionChanged}
+            onActionChanged={onDataRefreshed}
           ></DynamicallyExtensibleFormInputAction>
         </ActionWrapperComponent>
       );
@@ -64,10 +126,13 @@ export default function FormActionFactory({
           provided={provided}
           snapshot={snapshot}
           item={item}
+          name="Conditional"
+          hideInputName={true}
         >
           <ConditionalFormAction
             item={item}
-            onActionChanged={onActionChanged}
+            onActionChanged={onDataRefreshed}
+            onFormNamechange={onFormNameChange}
             state={state}
           ></ConditionalFormAction>
         </ActionWrapperComponent>
@@ -81,9 +146,9 @@ export default function FormActionFactory({
           onFormNamechange={onFormNameChange}
           provided={provided}
           snapshot={snapshot}
-        >
-          <CheckBoxFormAction item={item}></CheckBoxFormAction>
-        </ActionWrapperComponent>
+          item={item}
+          hideInputName={true}
+        ></ActionWrapperComponent>
       );
   }
 }

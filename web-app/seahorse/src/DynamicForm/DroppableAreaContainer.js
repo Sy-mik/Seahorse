@@ -9,18 +9,17 @@ const reorder = (list, startIndex, endIndex) => {
   result.splice(endIndex, 0, removed);
   return result;
 };
-export default function DroppableAreaContainer({ state, setState }) {
+export default function DroppableAreaContainer({
+  state,
+  setState,
+  onDataRefreshed,
+}) {
   function onDragEnd(result) {
     const { source, destination } = result;
     if (!destination) {
       return;
     }
     const items = reorder(state, source.index, destination.index);
-    setState(items);
-  }
-
-  function refreshData() {
-    const items = [...state];
     setState(items);
   }
 
@@ -36,7 +35,7 @@ export default function DroppableAreaContainer({ state, setState }) {
         state={state}
         ind={1}
         onClick={removeItem}
-        onActionChanged={refreshData}
+        onDataRefreshed={onDataRefreshed}
       ></DoppableAreaComponent>
     </DragDropContext>
   );

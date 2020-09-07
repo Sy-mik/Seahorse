@@ -9,24 +9,30 @@ export default function DynamicallyExtensibleInput({
   onLabelTypeChange,
   label,
   type,
+  hideTypePicker,
 }) {
   return (
     <Form.Group as={Row} controlId="formName" style={{ textAlign: "center" }}>
-      <Col lg={3}>
-        <Form.Control
-          onChange={(e) => onLabelTypeChange(e.target.value, id)}
-          as="select"
-          defaultValue={type}
-          style={{ maxWidth: 70 }}
-        >
-          <option value={InputFormTypes.Text}>📝</option>
-          <option value={InputFormTypes.Date}>📅</option>
-          <option value={InputFormTypes.CheckBox}>✅</option>
-          <option value={InputFormTypes.Radio}>🔘</option>
-          <option value={InputFormTypes.Label}>Label</option>
-        </Form.Control>
-      </Col>
-      <Col lg={7}>
+      {hideTypePicker ? (
+        <></>
+      ) : (
+        <Col lg={3}>
+          <Form.Control
+            onChange={(e) => onLabelTypeChange(e.target.value, id)}
+            as="select"
+            defaultValue={type}
+            style={{ maxWidth: 70 }}
+          >
+            <option value={InputFormTypes.Text}>📝</option>
+            <option value={InputFormTypes.Date}>📅</option>
+            <option value={InputFormTypes.CheckBox}>✅</option>
+            <option value={InputFormTypes.Radio}>🔘</option>
+            <option value={InputFormTypes.Label}>Label</option>
+          </Form.Control>
+        </Col>
+      )}
+
+      <Col>
         <Form.Control
           key={id}
           onChange={(e) => onChangeLabelName(e.target.value, id)}
@@ -35,7 +41,7 @@ export default function DynamicallyExtensibleInput({
           defaultValue={label}
         />
       </Col>
-      <Col lg={1}>
+      <Col sm={2}>
         <Button
           size="sm"
           variant="outline-secondary"
