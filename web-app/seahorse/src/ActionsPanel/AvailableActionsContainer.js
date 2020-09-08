@@ -1,16 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { AiOutlineForm, AiOutlineUser } from "react-icons/ai";
 import { GiCigarette, GiGears } from "react-icons/gi";
 import { CgListTree } from "react-icons/cg";
 
 import { v4 as uuidv4 } from "uuid";
 import { Colors } from "../Constants/Theme";
-import { FormTemplates, InputFormTypes } from "../Constants/FormActions";
+import {
+  FormTemplates,
+  InputFormTypes,
+  ActionCategory,
+} from "../Constants/FormActions";
 import { AvailableActionItem } from "./AvailableActionItem";
 import { BsCheckBox, BsCalendar } from "react-icons/bs";
+import { AvailableActions } from "./AvailableActions";
 
+export function IconsFactory({ iconName, iconSize}) {
+  switch (iconName) {
+    case AiOutlineForm:
+      return <AiOutlineForm size={iconSize} />;
+    case BsCheckBox:
+      return <BsCheckBox size={iconSize} />;
+    case BsCalendar:
+      return <BsCalendar size={iconSize} />;
+    case "Label":
+      return <>Txt</>;
+    case CgListTree:
+      return <CgListTree size={iconSize} />;
+    case AiOutlineUser:
+      return <AiOutlineUser size={iconSize} />;
+    case GiCigarette:
+      return <GiCigarette size={iconSize} />;
+    case GiGears:
+      return <GiGears size={iconSize} />;
+    default:
+      return <AiOutlineForm size={iconSize} />;
+  }
+}
 export default function AvailableActionsContainer({ onClick }) {
   const spaceBetweenItems = 5;
+  console.log(AvailableActions);
   return (
     <div>
       <div style={{ background: Colors.containerBackground }}>
@@ -22,51 +50,22 @@ export default function AvailableActionsContainer({ onClick }) {
             flexWrap: "wrap",
           }}
         >
-          <AvailableActionItem
-            name="Form"
-            onClick={() =>
-              onClick(FormTemplates.TextInputForm, 1, InputFormTypes.Text)
-            }
-          >
-            <AiOutlineForm size={25} />
-          </AvailableActionItem>
-          <AvailableActionItem
-            name="Checkbox"
-            onClick={() =>
-              onClick(FormTemplates.CheckBoxesForm, 1, InputFormTypes.CheckBox)
-            }
-          >
-            <BsCheckBox size={25} />
-          </AvailableActionItem>
-
-          <AvailableActionItem
-            name="Date"
-            onClick={() =>
-              onClick(FormTemplates.DateForm, 1, InputFormTypes.Date)
-            }
-          >
-            <BsCalendar size={25} />
-          </AvailableActionItem>
-          <AvailableActionItem
-            name="Label"
-            onClick={() =>
-              onClick(FormTemplates.LabelForm, 0, InputFormTypes.Label)
-            }
-          >
-            <h6>Txt</h6>
-          </AvailableActionItem>
-          <AvailableActionItem
-            name="Conditional"
-            onClick={() => onClick(FormTemplates.ConditionalForm, 0)}
-          >
-            <CgListTree size={25}></CgListTree>
-          </AvailableActionItem>
-          <AvailableActionItem
-            name="Dynamic form"
-            onClick={() => onClick(FormTemplates.DynamicallyExtensibleForm, 1)}
-          >
-            <GiGears size={25}></GiGears>
-          </AvailableActionItem>
+          {AvailableActions.filter(
+            (x) => x.category === ActionCategory.AvailableActions
+          ).map((item) => (
+            <AvailableActionItem
+              name={item.name}
+              onClick={() =>
+                onClick(
+                  item.type,
+                  item.defaultAmountOfGeneratedItems,
+                  item.inputType
+                )
+              }
+            >
+              <IconsFactory iconName={item.icon} iconSize={20}></IconsFactory>
+            </AvailableActionItem>
+          ))}
         </div>
       </div>
 
@@ -79,18 +78,22 @@ export default function AvailableActionsContainer({ onClick }) {
           flexWrap: "wrap",
         }}
       >
-        <AvailableActionItem
-          name="Personal data"
-          onClick={() => onClick(FormTemplates.PersonalDataFormTemplate)}
-        >
-          <AiOutlineUser size={25}></AiOutlineUser>
-        </AvailableActionItem>
-        <AvailableActionItem
-          name="Addictions"
-          onClick={() => onClick(FormTemplates.AddictionsFormTemplate)}
-        >
-          <GiCigarette size={25}></GiCigarette>
-        </AvailableActionItem>
+        {AvailableActions.filter(
+          (x) => x.category === ActionCategory.Templates
+        ).map((item) => (
+          <AvailableActionItem
+            name={item.name}
+            onClick={() =>
+              onClick(
+                item.type,
+                item.defaultAmountOfGeneratedItems,
+                item.inputType
+              )
+            }
+          >
+            <IconsFactory iconName={item.icon}></IconsFactory>
+          </AvailableActionItem>
+        ))}
       </div>
     </div>
   );

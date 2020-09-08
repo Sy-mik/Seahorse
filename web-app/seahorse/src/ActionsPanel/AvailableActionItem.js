@@ -7,21 +7,21 @@ export function AvailableActionItem({ onClick, name, ...props }) {
     display: "flex",
     marginLeft: 10,
     flexDirection: "column",
-    maxWidth: 65,
+    maxWidth: 45,
   };
 
   return (
     <div style={flexItemStyle}>
       <Button
-        style={{ maxWidth: 65 }}
+        style={{ maxWidth: 45, maxHeight:45 }}
         variant="outline-primary"
-        size="lg"
+        // size="lg"
         type="button"
         onClick={() => onClick(FormTemplates.DynamicallyExtensibleForm, uuidv4())}
       >
         {props.children}
       </Button>
-      <p style={{ paddingTop: 5, fontSize: 12 }}>{name} </p>
+      <p style={{ paddingTop: 5, fontSize: 10 }}>{name} </p>
     </div>
   );
 }

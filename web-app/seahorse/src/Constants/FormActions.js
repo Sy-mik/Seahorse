@@ -20,6 +20,20 @@ export const InputFormTypes = {
   Label: "Label",
 };
 
+export const ActionCategory = {
+  AvailableActions: "Available Actions",
+  Templates: "Templates",
+};
+
+export const InputCategory = {
+  Text: "Text",
+  // Number: "Number",
+  Date: "Date",
+  CheckBox: "Checkbox",
+  Radio: "Radio",
+  Label: "Label",
+};
+
 export const ConditionalOperators = {
   IsEqual: "Is Equal",
   IsLess: "Is Less",
