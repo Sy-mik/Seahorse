@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Card } from "react-bootstrap";
 import { InputFormTypes } from "../../Constants/FormActions";
-import DynamicallyExtensibleInput from "./DynamicallyExtensibleInputFactory";
+import DynamicallyExtensibleInput from "./ExtensibleInputFactory";
 import { v4 as uuidv4 } from "uuid";
 
 export default function DynamicallyExtensibleFormInputAction({

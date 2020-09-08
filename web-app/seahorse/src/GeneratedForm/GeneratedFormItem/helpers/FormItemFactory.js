@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FormTemplates } from "../../../Constants/FormActions";
 import GeneratedInputFormItem from "../GeneratedInputFormItem";
-import GeneratedDynamicallyExtensibleFormItem from "../GeneratedDynamicallyExtensibleFormItem";
+import GeneratedExtensibleFormItem from "../GeneratedExtensibleFormItem";
 import ConditionalFormItem from "../ConditionalFormItem";
 
 export default function FormItemFactory({
@@ -27,11 +27,11 @@ export default function FormItemFactory({
 
     default:
       return (
-        <GeneratedDynamicallyExtensibleFormItem
+        <GeneratedExtensibleFormItem
           key={item.id}
           onDataRefreshed={onDataRefreshed}
           item={item}
-        ></GeneratedDynamicallyExtensibleFormItem>
+        ></GeneratedExtensibleFormItem>
       );
   }
 }

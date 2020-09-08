@@ -3,7 +3,7 @@ import { FormTemplates, InputFormTypes } from "../../../Constants/FormActions";
 import InputFormAction from "../InputFormAction";
 import ActionWrapperComponent from "./ActionWrapperComponent";
 import CheckBoxFormAction from "../CheckBoxesFormAction";
-import DynamicallyExtensibleFormInputAction from "../DynamicallyExtensibleFormInputAction";
+import DynamicallyExtensibleFormInputAction from "../ExtensibleFormInputAction";
 import ConditionalFormAction from "../ConditionalFormAction";
 import ActionFormContainer from "../ActionFormContainer";
 import FormNameContainer from "./FormNameContainer";

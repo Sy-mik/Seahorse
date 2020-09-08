@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { FormTemplates } from "../../Constants/FormActions";
-import { ItemGeneratorContainer } from "./ItemGeneratorContainer";
+import { ItemGenerator } from "./ItemGenerator";
 function ConditionalFormItemComponent({
   isTreeVisible,
   item,
   onDataRefreshed,
 }) {
+  function changeItemValue(value) {
+    item.value = value;
+    onDataRefreshed();
+  }
+
   return isTreeVisible ? (
     <Form.Group controlId={`form${Math.random()}`}>
       {item.inputs?.map((item, index) => (
-        <ItemGeneratorContainer
-          item={item}
+        <ItemGenerator
+          onItemChange={changeItemValue}
+          key={index}
           index={index}
-          onDataRefreshed={onDataRefreshed}
-        ></ItemGeneratorContainer>
+          type={item.type}
+          inputName={item.name}
+        ></ItemGenerator>
       ))}
     </Form.Group>
   ) : null;
@@ -38,7 +45,7 @@ export default function ConditionalFormItem({ item, onDataRefreshed, state }) {
       });
     });
     return (
-      checkedVariableValue.toString() == conditional?.yPrameterValue.toString()
+      checkedVariableValue.toString() === conditional?.yPrameterValue.toString()
     );
   }
   return (

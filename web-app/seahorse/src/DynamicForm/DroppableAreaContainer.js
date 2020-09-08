@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import DoppableAreaComponent from "./DroppableAreaComponent";
-import { v4 as uuidv4 } from "uuid";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);

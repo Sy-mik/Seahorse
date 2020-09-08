@@ -1,6 +1,6 @@
 import React from "react";
 import AvailableActionsContainer from "../ActionsPanel/AvailableActionsContainer";
-import GeneratedFormDynamicViewContainer from "../GeneratedForm/GeneratedFormDynamicViewContainer";
+import GeneratedFormViewComponent from "../GeneratedForm/GeneratedFormViewComponent";
 import { Colors } from "../Constants/Theme";
 import DroppableAreaContainer from "./DroppableAreaContainer";
 import TreeViewComponent from "../FormTreeView/TreeViewComponent";
@@ -41,14 +41,14 @@ export default function DynamicFormComponent({
           marginRight: 20,
           marginLeft: 20,
           backgroundColor: Colors.backgroundColor,
-        }} //
+        }}
       >
         <Tabs defaultActiveKey="formView" id="uncontrolled-tab-example">
           <Tab eventKey="formView" title="Form">
-            <GeneratedFormDynamicViewContainer
+            <GeneratedFormViewComponent
               onDataRefreshed={onDataRefreshed}
               state={state}
-            ></GeneratedFormDynamicViewContainer>
+            ></GeneratedFormViewComponent>
           </Tab>
           <Tab eventKey="treeView" title="Tree">
             <TreeViewComponent formView={state}></TreeViewComponent>{" "}

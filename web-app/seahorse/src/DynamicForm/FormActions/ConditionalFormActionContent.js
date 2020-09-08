@@ -1,5 +1,5 @@
 import React from "react";
-import DynamicallyExtensibleFormInputAction from "./DynamicallyExtensibleFormInputAction";
+import DynamicallyExtensibleFormInputAction from "./ExtensibleFormInputAction";
 export function ConditionalFormActionContent({
   isVisible,
   state,

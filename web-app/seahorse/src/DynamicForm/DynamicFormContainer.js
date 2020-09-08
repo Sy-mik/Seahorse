@@ -8,7 +8,7 @@ import { DynamicExample } from "../Templates/DynamicExample";
 
 export default function DynamicFormContainer() {
   const [state, setState] = useState([]);
-
+  //All methods should be moved to redux
   function blankItem(id, actionType, amountOfInputs, itemType) {
     const inputs = [];
     for (let i = 0; i < amountOfInputs; i++) {
