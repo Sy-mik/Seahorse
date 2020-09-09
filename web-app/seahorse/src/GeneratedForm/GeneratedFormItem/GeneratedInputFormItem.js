@@ -4,9 +4,6 @@ import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { InputFormAction } from "../../Constants/FormActions";
 
 export default function GeneratedInputFormItem({ item }) {
-  useEffect(() => {
-    console.log(`item input type ${item.inputType}`);
-  }, [item]);
   return (
     <div>
       <Form>

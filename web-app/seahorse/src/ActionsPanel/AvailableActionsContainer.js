@@ -1,57 +1,69 @@
-import React, { useState } from "react";
-import { AiOutlineForm } from "react-icons/ai";
-import { BsCheckBox } from "react-icons/bs";
+import React, { useState, Component } from "react";
 
-import { Button } from "react-bootstrap";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
+import { v4 as uuidv4 } from "uuid";
 import { Colors } from "../Constants/Theme";
-import { FormActions } from "../Constants/FormActions";
+import {
+  FormTemplates,
+  InputFormTypes,
+  ActionCategory,
+} from "../Constants/FormActions";
+import { AvailableActionItem } from "./AvailableActionItem";
+import { AvailableActions } from "./AvailableActions";
+import { IconsFactory } from "./IconsFactory";
 
 export default function AvailableActionsContainer({ onClick }) {
   const spaceBetweenItems = 5;
-  const flexItemStyle = {
-    display: "flex",
-    marginLeft: 10,
-    flexDirection: "column",
-    maxWidth: 80,
-  };
   return (
-    //   ugly as hell
-    <div>
-      <div style={{ background: Colors.containerBackground, padding: 20 }}>
-        <h1>Available Actions</h1>
-
-        <div
-          style={{
-            display: "flex",
-            marginLeft: spaceBetweenItems,
-            flexWrap: "wrap",
-          }}
-        >
-          <div style={flexItemStyle}>
-            <Button
-              variant="outline-primary"
-              size="lg"
-              type="button"
-              onClick={() => onClick(FormActions.TextInputForm)}
-            >
-              <AiOutlineForm size={25} />
-            </Button>
-            <h6 style={{ paddingTop: 5 }}>Input form</h6>
-          </div>
-
-          <div style={flexItemStyle}>
-            <Button
-              variant="outline-primary"
-              size="lg"
-              type="button"
-              onClick={() => onClick(null)}
-            >
-              <BsCheckBox size={25} />
-            </Button>
-            <h6 style={{ paddingTop: 5 }}>Checkboxes</h6>
-          </div>
-        </div>
+    <div style={{ background: Colors.containerBackground }}>
+      <h3>Available Actions</h3>
+      <div
+        style={{
+          display: "flex",
+          marginLeft: spaceBetweenItems,
+          flexWrap: "wrap",
+        }}
+      >
+        {AvailableActions.filter(
+          (x) => x.category === ActionCategory.AvailableActions
+        ).map((item) => (
+          <AvailableActionItem
+            name={item.name}
+            onClick={() =>
+              onClick(
+                item.type,
+                item.defaultAmountOfGeneratedItems,
+                item.inputType
+              )
+            }
+          >
+            <IconsFactory iconName={item.icon} iconSize={20}></IconsFactory>
+          </AvailableActionItem>
+        ))}
+      </div>
+      <h3>Templates</h3>
+      <div
+        style={{
+          display: "flex",
+          marginLeft: spaceBetweenItems,
+          flexWrap: "wrap",
+        }}
+      >
+        {AvailableActions.filter(
+          (x) => x.category === ActionCategory.Templates
+        ).map((item) => (
+          <AvailableActionItem
+            name={item.name}
+            onClick={() =>
+              onClick(
+                item.type,
+                item.defaultAmountOfGeneratedItems,
+                item.inputType
+              )
+            }
+          >
+            <IconsFactory iconName={item.icon}></IconsFactory>
+          </AvailableActionItem>
+        ))}
       </div>
     </div>
   );

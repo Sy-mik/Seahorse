@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import DoppableAreaComponent from "./DroppableAreaComponent";
 
@@ -8,8 +8,11 @@ const reorder = (list, startIndex, endIndex) => {
   result.splice(endIndex, 0, removed);
   return result;
 };
-
-export default function DroppableAreaContainer({ state, setState }) {
+export default function DroppableAreaContainer({
+  state,
+  setState,
+  onDataRefreshed,
+}) {
   function onDragEnd(result) {
     const { source, destination } = result;
     if (!destination) {
@@ -17,12 +20,6 @@ export default function DroppableAreaContainer({ state, setState }) {
     }
     const items = reorder(state, source.index, destination.index);
     setState(items);
-
-    console.log(state);
-  }
-
-  function onActionChanged() {
-    setState([...state]);
   }
 
   function removeItem(itemIndex) {
@@ -37,7 +34,7 @@ export default function DroppableAreaContainer({ state, setState }) {
         state={state}
         ind={1}
         onClick={removeItem}
-        onActionChanged={onActionChanged}
+        onDataRefreshed={onDataRefreshed}
       ></DoppableAreaComponent>
     </DragDropContext>
   );
