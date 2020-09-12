@@ -1,21 +1,35 @@
 import React, { useState } from "react";
-import { authServiceLogIn } from "../services/AuthService";
 import { FaKey, FaUserCircle } from "react-icons/fa";
 import "./Login.scss";
+import axios from "axios";
 
 export default function Login() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function logIn(e) {
     e.preventDefault();
-    authServiceLogIn(login, password);
-    return false;
+    axios({
+      method: "post",
+      url: "/auth/signin",
+      data: { login, password },
+    })
+      .then(function (response) {
+        localStorage.setItem("IS_LOGGED_IN", "true");
+        window.open("/", "_self");
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+        setErrorMessage("User name and password do not match");
+      });
   }
 
   return (
     <div className="login-form-wrapper">
       <form onSubmit={logIn} className="login-panel">
+        <p className="error">{errorMessage}</p>
+
         <div className="username">
           <label htmlFor="login">
             Login <FaUserCircle />

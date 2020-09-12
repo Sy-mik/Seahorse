@@ -16,7 +16,7 @@ namespace Seahorse.WebApi.Auth.Services
         private readonly ISessionIdProvider sessionIdProvider;
         private readonly IAuthenticationTicketBuilder authenticationTicketBuilder;
 
-        protected SeahorseAuthenticationHandler(
+        public SeahorseAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,

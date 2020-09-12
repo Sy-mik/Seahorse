@@ -6,11 +6,16 @@
 
   .login-panel {
     font-size: 20px;
-    min-width: 300px;
+    min-width: 400px;
     background-color: $capri;
     border-radius: 8px;
     padding: 20px;
     margin-top: 50px;
+
+    .error {
+      background-color: salmon;
+    }
+
     label,
     input {
       display: block;
@@ -21,13 +26,11 @@
       margin: 0;
       color: white;
     }
-    input {
-      margin-bottom: 10px;
-    }
 
     .submit-button {
       display: flex;
       justify-content: flex-end;
+
       button {
         margin-top: 10px;
         width: 100px;
