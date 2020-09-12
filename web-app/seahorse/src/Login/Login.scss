@@ -1,0 +1,37 @@
+@import "src/styles/var";
+
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .login-panel {
+    font-size: 20px;
+    min-width: 300px;
+    background-color: $capri;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 50px;
+    label,
+    input {
+      display: block;
+      width: 100%;
+    }
+
+    label {
+      margin: 0;
+      color: white;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+
+    .submit-button {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        margin-top: 10px;
+        width: 100px;
+      }
+    }
+  }
+}
